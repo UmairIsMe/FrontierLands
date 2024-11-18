@@ -6,8 +6,13 @@ extends Node
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
 
-const Player = preload("res://player.tscn")
+@onready var Player = preload("res://player.tscn")
+var tracked = false
 
+
+func _physics_process(delta):
+	if tracked:
+		get_tree().call_group("enemy", "update_target_location", Player.global_transform.origin)
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("quit"):
@@ -24,6 +29,7 @@ func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
+	tracked = true
 	if player.is_multiplayer_authority():
 		player.health_changed.connect(update_health_bar)
 
