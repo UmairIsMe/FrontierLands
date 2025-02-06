@@ -15,6 +15,14 @@ run/main_scene="res://testWorld.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SodaAudioManager="*res://addons/SodaAudioManager/Scenes/soda_audio_manager.scn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SodaAudioManager/plugin.cfg")
+
 [input]
 
 up={
