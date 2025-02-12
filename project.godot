@@ -24,7 +24,6 @@ project/assembly_name="Frontier Lands"
 
 import/blender/enabled=false
 
-
 [input]
 
 up={
