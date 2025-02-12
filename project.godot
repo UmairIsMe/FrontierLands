@@ -15,6 +15,18 @@ run/main_scene="res://testWorld.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+<<<<<<< Updated upstream
+project/assembly_name="Frontier Lands"
+
+[filesystem]
+
+import/blender/enabled=false
+=======
+project/assembly_name="MultiplayerFPSTutorial"
+>>>>>>> Stashed changes
+
 [input]
 
 up={
