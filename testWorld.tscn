@@ -82,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+[node name="TextureRectangle" type="TextureRect" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
