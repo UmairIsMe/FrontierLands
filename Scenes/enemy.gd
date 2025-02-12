@@ -22,3 +22,4 @@ func _physics_process(delta):
 	velocity = new_veloicty
 	
 	move_and_slide()
+#nadal was here
