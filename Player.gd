@@ -11,6 +11,9 @@ var health = 3
 
 var speed = 5.0
 const JUMP_VELOCITY = 10.0
+var height = 2.0
+var crouch_height = 1.2
+var is_crouching = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20.0
@@ -92,7 +95,19 @@ func _on_animation_player_animation_finished(anim_name):
 # Called every frame
 func _process(delta):
 	# Check if the player is holding shift to run
+	# Speeds are subject to change
 	if Input.is_action_pressed("player_run"):
-		speed = 15.0
+		speed = 12.0
+	elif Input.is_action_pressed("ui_crouch"):
+		print("Crouch")
+		#Commenting out to work on foe next lesson.
+		#camera.position.y = height + 0.05
+		speed = 3.5
 	else:
 		speed = 7.0
+
+#func crouch():
+	#is_crouching = true
+	#Reduce the character's height to simulate crouching
+	#camera.position.y = crouch_height - 0.01
+	#print("Crouch")

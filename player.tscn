@@ -19,7 +19,9 @@ gradient = SubResource("Gradient_cfnn0")
 angle_min = 45.0
 angle_max = 45.0
 gravity = Vector3(0, 0, 0)
+
 color_ramp = SubResource("GradientTexture1D_ca30p")
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flg34"]
 transparency = 1
