@@ -1,7 +1,7 @@
 extends Node
 
 @onready var main_menu = $CanvasLayer/MainMenu
-@onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
+#@onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
@@ -12,11 +12,11 @@ var tracked = false
 var player
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if tracked:
 		get_tree().call_group("enemy", "update_target_location", player.global_transform.origin)
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
