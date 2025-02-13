@@ -17,12 +17,7 @@ config/icon="res://icon.svg"
 
 [dotnet]
 
-
 project/assembly_name="Frontier Lands"
-
-[filesystem]
-
-import/blender/enabled=false
 
 [input]
 
