@@ -1,0 +1,151 @@
+[gd_scene load_steps=22 format=3 uid="uid://txw564016hgy"]
+
+[ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ev2dd"]
+size = Vector2(35, 37)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y1nvk"]
+size = Vector2(22.5, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fgk0b"]
+size = Vector2(22.5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6yl15"]
+size = Vector2(20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1i06n"]
+size = Vector2(22, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_herux"]
+size = Vector2(15, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_642bi"]
+size = Vector2(20, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rtvs4"]
+size = Vector2(60, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8u4vn"]
+size = Vector2(15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cwadg"]
+size = Vector2(8, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aoarn"]
+size = Vector2(8, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_adcyb"]
+size = Vector2(4, 8.8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4j6ti"]
+size = Vector2(40, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uljc4"]
+size = Vector2(5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mjywr"]
+size = Vector2(4.5, 32.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hffmo"]
+size = Vector2(14, 17)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6r3n1"]
+size = Vector2(30, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wylgc"]
+size = Vector2(15, 15.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3rj2t"]
+size = Vector2(20, 21)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1a5tc"]
+size = Vector2(22, 5)
+
+[node name="SpaceshipMap" type="Node3D"]
+
+[node name="Enemy93" parent="." instance=ExtResource("1_yd3bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Baseplates" type="Node" parent="."]
+
+[node name="Mid" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("PlaneMesh_ev2dd")
+skeleton = NodePath("../..")
+
+[node name="MidBranchASmall" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.75, 0, -15.5)
+mesh = SubResource("PlaneMesh_y1nvk")
+
+[node name="MidBranchABig" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.75, 0, -6)
+mesh = SubResource("PlaneMesh_fgk0b")
+
+[node name="SiteA" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -7.5)
+mesh = SubResource("PlaneMesh_6yl15")
+
+[node name="DefenderBranchA" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -43.5, 0.016, -23.5)
+mesh = SubResource("PlaneMesh_1i06n")
+
+[node name="AttackerBranchAMain" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(0.422618, 0, -0.906308, 0, 1, 0, 0.906308, 0, 0.422618, -48, 0, 8)
+mesh = SubResource("PlaneMesh_herux")
+
+[node name="AttackerBranchALobby" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 21)
+mesh = SubResource("PlaneMesh_642bi")
+
+[node name="AttackerSpawnExit" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 21.25)
+mesh = SubResource("PlaneMesh_rtvs4")
+
+[node name="AttackerSpawn" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 40)
+mesh = SubResource("PlaneMesh_8u4vn")
+
+[node name="AttackerSpawnExitTunnelLeft" type="MeshInstance3D" parent="Baseplates/AttackerSpawn"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -2.9, 0, -8.55)
+mesh = SubResource("PlaneMesh_cwadg")
+
+[node name="AttackerSpawnExitTunnelRight" type="MeshInstance3D" parent="Baseplates/AttackerSpawn"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.9, 0, -8.55)
+mesh = SubResource("PlaneMesh_aoarn")
+
+[node name="AttackerSpawnExitTunnelMain" type="MeshInstance3D" parent="Baseplates/AttackerSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.87)
+mesh = SubResource("PlaneMesh_adcyb")
+
+[node name="MidBranchBSmall" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, -15.5)
+mesh = SubResource("PlaneMesh_4j6ti")
+
+[node name="MidBranchBBig" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 2)
+mesh = SubResource("PlaneMesh_uljc4")
+
+[node name="AttackerBranchBConnector" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.75, 0, 2.57028)
+mesh = SubResource("PlaneMesh_mjywr")
+
+[node name="AttackerBranchBLobby" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 10.5)
+mesh = SubResource("PlaneMesh_hffmo")
+
+[node name="AttackerBranchBMain" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 21.25)
+mesh = SubResource("PlaneMesh_6r3n1")
+
+[node name="AttackerBranchBMain2" type="MeshInstance3D" parent="Baseplates/AttackerBranchBMain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -10.0023)
+mesh = SubResource("PlaneMesh_wylgc")
+
+[node name="SiteB" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, -6.99994)
+mesh = SubResource("PlaneMesh_3rj2t")
+
+[node name="DefenderBranchB" type="MeshInstance3D" parent="Baseplates"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 49.5, 0, -23.5)
+mesh = SubResource("PlaneMesh_1a5tc")
