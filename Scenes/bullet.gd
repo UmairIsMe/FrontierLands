@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @export var speed: float = 20.0
+@export var bullet_scene = "res://Scenes/bullet.tscn"
 
 func _ready():
 	# Apply an initial velocity in the forward direction

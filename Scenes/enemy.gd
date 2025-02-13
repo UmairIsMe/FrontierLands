@@ -3,8 +3,9 @@ extends CharacterBody3D
 @onready var nav_agent = $NavigationAgent3D
 var SPEED = 7.0
 const JUMP_VELOCITY = 4.5
-@export var bullet_scene: PackedScene
+var bullet_scene = preload("res://Scenes/bullet.tscn")
 @export var shooting_offset: Vector3 = Vector3(0, 1, 3)  # Adjust where bullets should spawn
+var bullet_instance = 0
 
 var shoot_timer: Timer
 
