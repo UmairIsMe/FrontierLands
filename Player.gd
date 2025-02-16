@@ -6,6 +6,7 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var gunshot = $gunshot
 
 var health = 3
 
@@ -77,6 +78,7 @@ func _physics_process(delta):
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
+	gunshot.play()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 
