@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
+@onready var enemy = $enemy
 var SPEED = 7.0
 const JUMP_VELOCITY = 4.5
 var bullet_scene = preload("res://Scenes/bullet.tscn")
@@ -35,6 +36,7 @@ func shoot_bullet():
 	# Create the bullet instance
 	var bullet_instance = bullet_scene.instantiate()
 	# Position the bullet in front of the enemy
+	enemy.play()
 	bullet_instance.global_transform = bullet_spawn.global_transform
 	# Add bullet to the scene
 	get_tree().current_scene.add_child(bullet_instance)
