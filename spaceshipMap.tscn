@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=77 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 
@@ -224,7 +224,17 @@ size = Vector3(25, 8, 2.5)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7yaxt"]
 data = PackedVector3Array(-12.5, 4, 1.25, 12.5, 4, 1.25, -12.5, -4, 1.25, 12.5, 4, 1.25, 12.5, -4, 1.25, -12.5, -4, 1.25, 12.5, 4, -1.25, -12.5, 4, -1.25, 12.5, -4, -1.25, -12.5, 4, -1.25, -12.5, -4, -1.25, 12.5, -4, -1.25, 12.5, 4, 1.25, 12.5, 4, -1.25, 12.5, -4, 1.25, 12.5, 4, -1.25, 12.5, -4, -1.25, 12.5, -4, 1.25, -12.5, 4, -1.25, -12.5, 4, 1.25, -12.5, -4, -1.25, -12.5, 4, 1.25, -12.5, -4, 1.25, -12.5, -4, -1.25, 12.5, 4, 1.25, -12.5, 4, 1.25, 12.5, 4, -1.25, -12.5, 4, 1.25, -12.5, 4, -1.25, 12.5, 4, -1.25, -12.5, -4, 1.25, 12.5, -4, 1.25, -12.5, -4, -1.25, 12.5, -4, 1.25, 12.5, -4, -1.25, -12.5, -4, -1.25)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_p3pjr"]
+size = Vector2(29.5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_50w5e"]
+size = Vector2(57.5, 8)
+
 [node name="SpaceshipMap" type="Node3D"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
 
 [node name="Enemy93" parent="." instance=ExtResource("1_yd3bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172924, 3, -6.58826)
@@ -595,6 +605,14 @@ mesh = SubResource("BoxMesh_123me")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/AttackerMidWallBlock/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7yaxt")
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://player.tscn")
-spawn_path = NodePath("..")
+[node name="Exterior Walls" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13.25, 4, 23.75)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_p3pjr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.25, 4, 23.75)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_50w5e")
