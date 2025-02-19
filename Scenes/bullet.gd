@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var speed: float = 20.0
+@export var speed: float = 40.0
 @export var bullet_scene = "res://Scenes/bullet.tscn"
 
 func _ready():
