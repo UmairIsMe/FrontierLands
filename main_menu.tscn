@@ -101,17 +101,23 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 14.5174
+offset_top = -24.5797
+offset_right = 54.5174
+offset_bottom = 15.4203
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = -389.0
-offset_top = -214.0
-offset_right = -310.0
-offset_bottom = -155.0
+offset_left = -397.21
+offset_top = -208.306
+offset_right = -318.21
+offset_bottom = -149.306
 
 [node name="ColorRect3" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.591
+offset_left = -50.1258
+offset_top = -14.9606
+offset_right = -73.7658
+offset_bottom = 25.0394
