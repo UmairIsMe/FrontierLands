@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b25721k0oqnlb"]
+[gd_scene load_steps=10 format=3 uid="uid://b25721k0oqnlb"]
 
+[ext_resource type="Script" path="res://main_menu.gd" id="1_07mw3"]
 [ext_resource type="FontFile" uid="uid://cikbh0cijo3yi" path="res://Fonts/cyberformhalf.ttf" id="1_ix8f7"]
 [ext_resource type="FontFile" uid="uid://c76krp3u68v8j" path="res://Fonts/Cyberfall Italic.otf" id="2_xlx0f"]
 
@@ -34,6 +35,7 @@ offset_bottom = -106.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00552, 1.03959)
+script = ExtResource("1_07mw3")
 
 [node name="MainMenu" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -121,3 +123,5 @@ offset_left = -50.1258
 offset_top = -14.9606
 offset_right = -73.7658
 offset_bottom = 25.0394
+
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_pressed"]
