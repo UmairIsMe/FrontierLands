@@ -44,8 +44,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -334.0
-offset_top = -193.0
+offset_left = -49.7512
+offset_top = -312.324
+offset_right = 284.249
+offset_bottom = -119.324
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -103,25 +105,25 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 14.5174
-offset_top = -24.5797
-offset_right = 54.5174
-offset_bottom = 15.4203
+offset_left = 11.5338
+offset_top = -259.288
+offset_right = 51.5338
+offset_bottom = -219.288
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = -397.21
-offset_top = -208.306
-offset_right = -318.21
-offset_bottom = -149.306
+offset_left = -176.0
+offset_top = -289.0
+offset_right = -129.0
+offset_bottom = -243.0
 
 [node name="ColorRect3" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.591
-offset_left = -50.1258
-offset_top = -14.9606
-offset_right = -73.7658
-offset_bottom = 25.0394
+offset_left = -55.0984
+offset_top = -216.001
+offset_right = -78.7384
+offset_bottom = -176.001
 
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_pressed"]
