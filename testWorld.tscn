@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=18 format=3 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ctiuy"]
 [ext_resource type="FontFile" uid="uid://cikbh0cijo3yi" path="res://Fonts/cyberformhalf.ttf" id="2_474y7"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c76krp3u68v8j" path="res://Fonts/Cyberfall Italic.otf" id="2_tu5nb"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_hbot1"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="3_nule3"]
+[ext_resource type="Texture2D" uid="uid://ntptst52fu81" path="res://icons/7ddc6769-3759-4691-97e3-3555e34b3367.webp" id="4_d4g1i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -98,6 +99,12 @@ text = "Options"
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_nop3c")
 text = "Quit"
+
+[node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+show_behind_parent = true
+position = Vector2(131, 206)
+scale = Vector2(1.13839, 1.03418)
+texture = ExtResource("4_d4g1i")
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 visible = false
