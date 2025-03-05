@@ -9,10 +9,12 @@ signal health_changed(health_value)
 @onready var gunshot = $gunshot
 @export var crouch_height : float = 1.5  # Crouched height
 @export var standing_height : float = 2.5  # Standing height
+
 #Crouch and standing heights can be changed at any time
 @onready var health_bar: ProgressBar = $HealthBar
 
 var is_crouching : bool = false
+var bulletSpawn
 
 
 var max_health = 100
@@ -46,7 +48,7 @@ func _enter_tree():
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	
+	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	
@@ -61,6 +63,7 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
 	if Input.is_action_just_pressed("shoot"):
+		shoot()
 		#and anim_player.current_animation != "shoot":
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
@@ -138,3 +141,10 @@ func _process(delta):
 
 func toggle_crouch():
 	is_crouching = !is_crouching
+
+func shoot():
+	var bullet = bulletScene.instantiate()
+	#get_node(".").add_child(bullet)
+	get_tree().root.add_child(bullet)
+	bullet.global_transform = bulletSpawn.global_transform
+	bullet.scale = Vector3(0.1, 0.1, 0.1)
