@@ -2,9 +2,11 @@ extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var enemy = $enemy
-var SPEED = 5.0
+@onready var pistol = $Pistol  # Reference the gun node (pistol) in the enemy scene
+@onready var player = get_node("res://Player.gd") 
+var SPEED = 0
 const JUMP_VELOCITY = 4.5
-var bullet_scene = preload("res://Scenes/bullet.tscn")
+var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 @export var shooting_offset: Vector3 = Vector3(0, 1, 3)  # Adjust where bullets should spawn
 var bullet_instance = 0
 var shoot_timer: Timer
@@ -36,7 +38,20 @@ func _physics_process(_delta):
 	var new_velocity = direction * SPEED
 	velocity = new_velocity
 	move_and_slide()
-
+#	aim_gun_at_player()
+	
+#func aim_gun_at_player():
+#	var current_location = global_transform.origin
+#	var next_location = nav_agent.get_next_path_position()
+#	look_at(next_location) # Enemy will turn to face player
+#	if player:
+		# Calculate the direction from the gun to the player
+#		var pistol_position = pistol.global_transform.origin
+#		var player_position = player.global_transform.origin
+#		var aim_direction = (player_position - pistol_position).normalized()
+#		# Make the gun rotate to face the player
+#		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
+		
 #this is the code used for the enemy before
 #func _physics_process(_delta):
 #	var current_location = global_transform.origin
@@ -49,7 +64,8 @@ func _physics_process(_delta):
 #	velocity = new_veloicty
 #	
 #	move_and_slide()
-
+	
+	
 
 func shoot_bullet():
 	# Create the bullet instance
@@ -59,9 +75,6 @@ func shoot_bullet():
 	bullet_instance.global_transform = bullet_spawn.global_transform
 	# Add bullet to the scene
 	get_tree().current_scene.add_child(bullet_instance)
-
-
-
 
 
 func _on_timer_timeout():
