@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=85 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 
@@ -229,6 +229,31 @@ size = Vector2(29.5, 8)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_50w5e"]
 size = Vector2(57.5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6aumy"]
+size = Vector2(5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pc3st"]
+size = Vector2(20, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k2k1u"]
+size = Vector2(13.5, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m5qwu"]
+size = Vector2(13.9, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n510h"]
+size = Vector2(6.2, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3e5fg"]
+size = Vector2(20, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2yllx"]
+custom_aabb = AABB(0, -0.05, 0, 0, 0, 0)
+size = Vector2(3.27, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7hhl2"]
+size = Vector2(3.27, 8)
 
 [node name="SpaceshipMap" type="Node3D"]
 
@@ -616,3 +641,42 @@ mesh = SubResource("PlaneMesh_p3pjr")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.25, 4, 23.75)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_50w5e")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -28, 4, 26.25)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_6aumy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -38, 4, 28.5)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_pc3st")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(1.31134e-07, 1, 3.82137e-15, -4.37114e-08, 1.91069e-15, 1, 1, -1.31134e-07, 4.37114e-08, -48, 4, 21.844)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_k2k1u")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(0.422618, 0.906308, 3.9616e-08, 0, -4.37114e-08, 1, 0.906308, -0.422618, -1.84732e-08, -50.935, 4, 8.8)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_m5qwu")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -56.97, 4, 2.5)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_n510h")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, -60, 4, -7.5)
+mesh = SubResource("PlaneMesh_3e5fg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(-4.37114e-08, 1, 3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, 4.37114e-08, 1.5, 4, 25.385)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_2yllx")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Exterior Walls"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 5.5, 4, 25.385)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_7hhl2")
