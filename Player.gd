@@ -16,7 +16,8 @@ signal health_changed(health_value)
 var is_crouching : bool = false
 var bulletSpawn
 var bulletScene = preload("res://player_bullet.tscn")
-
+var shootCooldown = 0.2
+var can_shoot = true
 
 var max_health = 100
 var current_health: int = max_health
@@ -63,13 +64,17 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shoot()
+		can_shoot = false
 		#and anim_player.current_animation != "shoot":
+		await get_tree().create_timer(shootCooldown).timeout
+		can_shoot = true
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+			
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
