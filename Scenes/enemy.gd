@@ -4,13 +4,14 @@ extends CharacterBody3D
 @onready var enemy = $enemy
 @onready var pistol = $Pistol  # Reference the gun node (pistol) in the enemy scene
 @onready var player = get_node("res://Player.gd") 
-var SPEED = 0
+var SPEED = 3
 const JUMP_VELOCITY = 4.5
 var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 @export var shooting_offset: Vector3 = Vector3(0, 1, 3)  # Adjust where bullets should spawn
 var bullet_instance = 0
 var shoot_timer: Timer
 var bullet_spawn
+var health = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -79,3 +80,9 @@ func shoot_bullet():
 
 func _on_timer_timeout():
 	shoot_bullet()
+
+
+func take_damage(damage_amount):
+	health -= 1
+	if health <=0:
+		queue_free()

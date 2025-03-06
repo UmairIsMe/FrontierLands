@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://xcjrjq5cbn7y"]
+[gd_scene load_steps=18 format=3 uid="uid://xcjrjq5cbn7y"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_2v3wm"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="2_4esil"]
-[ext_resource type="PackedScene" uid="uid://bkmywv3rot0ui" path="res://models/man.blend" id="2_ej3dl"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_27dhu"]
 [ext_resource type="AudioStream" uid="uid://cyp0dip0hu5qd" path="res://audio/gunshot.ogg" id="4_56v1d"]
 
@@ -138,9 +137,6 @@ properties/2/replication_mode = 1
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_2v3wm")
-
-[node name="man" parent="." instance=ExtResource("2_ej3dl")]
-transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
