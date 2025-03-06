@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var speed: float = 10.0
+@export var speed: float = 50.0
 @export var bullet_scene = "res://Scenes/bullet.tscn"
 
 #func _ready(delta):
@@ -18,4 +18,4 @@ func _process (delta):
 
 func _on_body_entered(body):
 	print("collide")
-#	queue_free()
+	queue_free()

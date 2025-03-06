@@ -69,6 +69,7 @@ process_material = SubResource("ParticleProcessMaterial_rw2b2")
 draw_pass_1 = SubResource("PlaneMesh_8vdlg")
 
 [node name="bullet_spawn" type="Node3D" parent="Pistol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.273147)
 
 [node name="enemy" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ic84i")
