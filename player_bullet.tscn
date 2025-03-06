@@ -9,6 +9,7 @@ transform = Transform3D(4.37107e-08, -0.999985, -0.00556765, -2.43368e-10, 0.005
 script = ExtResource("1_rafk8")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
 
