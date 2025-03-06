@@ -170,7 +170,7 @@ text = "Quit"
 
 [node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 show_behind_parent = true
-position = Vector2(131, 206)
+position = Vector2(139, 202)
 scale = Vector2(1.13839, 1.03418)
 texture = ExtResource("4_asrc3")
 
