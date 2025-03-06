@@ -17,8 +17,9 @@ func _on_single_player_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://options.tscn")
 
 
 func _on_quit_pressed() -> void:
 	pass # Replace with function body.
+	get_tree().quit()
