@@ -31,35 +31,36 @@ grow_vertical = 2
 scale = Vector2(1.00552, 1.03959)
 script = ExtResource("1_07mw3")
 
-[node name="MainMenu" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -49.7512
-offset_top = -312.324
-offset_right = 284.249
-offset_bottom = -119.324
+offset_left = -752.972
+offset_top = -422.079
+offset_right = -418.972
+offset_bottom = -229.079
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_eftnw")
 theme_override_font_sizes/font_size = 30
@@ -67,29 +68,27 @@ text = "Terminal Breach"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SinglePlayer" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="SinglePlayer" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_26gi0")
 text = "Single Player"
 
-[node name="Options" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_wxbue")
 text = "Options"
 
-[node name="Quit" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_q3ytf")
 text = "Quit"
 
-[node name="7Ddc6769-3759-4691-97e3-3555e34b3368" type="Sprite2D" parent="."]
+[node name="7Ddc6769-3759-4691-97e3-3555e34b3368" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 show_behind_parent = true
-position = Vector2(472.392, 151.983)
-scale = Vector2(1.13839, 1.03418)
+position = Vector2(135.972, 189.079)
+scale = Vector2(1.14467, 1.07512)
 texture = ExtResource("4_asrc3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_pressed"]
-[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
