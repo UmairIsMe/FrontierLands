@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://models/enemyPistol.gd" id="3_ylfr5"]
 [ext_resource type="AudioStream" uid="uid://c4qvofe5e1ucw" path="res://audio/enemy.ogg" id="4_ic84i"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_an04p"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkvtw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_an04p"]
 
 [sub_resource type="Gradient" id="Gradient_or8bq"]
 offsets = PackedFloat32Array(0, 0.141221, 1)
@@ -42,15 +42,15 @@ orientation = 2
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_phvpf")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bkvtw")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_an04p")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_bkvtw")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
