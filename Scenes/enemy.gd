@@ -11,6 +11,7 @@ var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 var bullet_instance = 0
 var shoot_timer: Timer
 var bullet_spawn
+var health = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -79,3 +80,9 @@ func shoot_bullet():
 
 func _on_timer_timeout():
 	shoot_bullet()
+
+
+func take_damage(damage_amount):
+	health -= 1
+	if health <=0:
+		queue_free()
