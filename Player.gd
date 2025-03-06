@@ -116,12 +116,12 @@ func play_shoot_effects():
 	muzzle_flash.emitting = true
 
 @rpc("any_peer")
-#func receive_damage():
-#	health -= 1
-#	if health <= 0:
-#		health = 3
-#		position = Vector3.ZERO
-#	health_changed.emit(health)
+func receive_damage():
+	current_health -= 1
+	if current_health <= 0:
+		current_health = 3
+		position = Vector3.ZERO
+	health_changed.emit(current_health)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
