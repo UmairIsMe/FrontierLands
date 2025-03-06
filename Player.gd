@@ -10,10 +10,16 @@ signal health_changed(health_value)
 @export var crouch_height : float = 1.5  # Crouched height
 @export var standing_height : float = 2.5  # Standing height
 
+#Crouch and standing heights can be changed at any time
+@onready var health_bar: ProgressBar = $HealthBar
+
 var is_crouching : bool = false
+var bulletSpawn
 
 
-var health = 3
+var max_health = 100
+var current_health: int = max_health
+
 
 var speed = 5.0
 const JUMP_VELOCITY = 10.0
@@ -23,12 +29,26 @@ const JUMP_VELOCITY = 10.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20.0
 
+func take_damage(amount) -> void:
+	current_health -= amount
+	current_health = clamp(current_health, 0, max_health)
+	
+	if health_bar:
+		health_bar.value = current_health
+		
+	if current_health <= 0:
+		die()
+	
+func die() -> void:
+	print("Player has died")
+
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	
+	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	
@@ -43,6 +63,7 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
 	if Input.is_action_just_pressed("shoot"):
+		shoot()
 		#and anim_player.current_animation != "shoot":
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
@@ -89,12 +110,12 @@ func play_shoot_effects():
 	muzzle_flash.emitting = true
 
 @rpc("any_peer")
-func receive_damage():
-	health -= 1
-	if health <= 0:
-		health = 3
-		position = Vector3.ZERO
-	health_changed.emit(health)
+#func receive_damage():
+#	health -= 1
+#	if health <= 0:
+#		health = 3
+#		position = Vector3.ZERO
+#	health_changed.emit(health)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
@@ -109,14 +130,21 @@ func _process(delta):
 	elif Input.is_action_just_pressed("ui_crouch"):
 		print("Crouch")
 		toggle_crouch()
+		speed = 3.5
 		if is_crouching:
 			camera.position.y = crouch_height / 2.0
 		else:
 			camera.position.y = standing_height / 2.0
-		speed = 3.5
-	else:
-		speed = 7.0
 
+	else:
+		speed = 5.0
 
 func toggle_crouch():
 	is_crouching = !is_crouching
+
+func shoot():
+	var bullet = bulletScene.instantiate()
+	#get_node(".").add_child(bullet)
+	get_tree().root.add_child(bullet)
+	bullet.global_transform = bulletSpawn.global_transform
+	bullet.scale = Vector3(0.1, 0.1, 0.1)

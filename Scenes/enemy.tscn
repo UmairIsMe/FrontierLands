@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://5k1o5ctvtah6"]
+[gd_scene load_steps=13 format=3 uid="uid://5k1o5ctvtah6"]
 
 [ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_phvpf"]
 [ext_resource type="PackedScene" uid="uid://cf1dcxwv6bvl3" path="res://models/Pistol.glb" id="2_u1s3k"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_on872"]
+[ext_resource type="Script" path="res://models/enemyPistol.gd" id="3_ylfr5"]
 [ext_resource type="AudioStream" uid="uid://c4qvofe5e1ucw" path="res://audio/enemy.ogg" id="4_ic84i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_an04p"]
@@ -55,6 +56,7 @@ shape = SubResource("CapsuleShape3D_bkvtw")
 
 [node name="Pistol" parent="." instance=ExtResource("2_u1s3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
+script = ExtResource("3_ylfr5")
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="Pistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
