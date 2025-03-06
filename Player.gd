@@ -15,6 +15,7 @@ signal health_changed(health_value)
 
 var is_crouching : bool = false
 var bulletSpawn
+var bulletScene = preload("res://player_bullet.tscn")
 
 
 var max_health = 100
@@ -144,7 +145,6 @@ func toggle_crouch():
 
 func shoot():
 	var bullet = bulletScene.instantiate()
-	#get_node(".").add_child(bullet)
 	get_tree().root.add_child(bullet)
 	bullet.global_transform = bulletSpawn.global_transform
 	bullet.scale = Vector3(0.1, 0.1, 0.1)
