@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://beiu2wrofifn2"]
+[gd_scene load_steps=4 format=3 uid="uid://beiu2wrofifn2"]
 
 [ext_resource type="FontFile" uid="uid://cikbh0cijo3yi" path="res://Fonts/cyberformhalf.ttf" id="1_6syl2"]
+[ext_resource type="Texture2D" uid="uid://ntptst52fu81" path="res://icons/7ddc6769-3759-4691-97e3-3555e34b3367.webp" id="2_hx7m7"]
 
 [sub_resource type="FontVariation" id="FontVariation_vu2uu"]
 base_font = ExtResource("1_6syl2")
@@ -55,5 +56,8 @@ vertical_alignment = 1
 
 [node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(1149, 310)
+position = Vector2(1251, 523)
 scale = Vector2(1.13839, 1.03418)
+texture = ExtResource("2_hx7m7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
