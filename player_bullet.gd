@@ -12,12 +12,12 @@ func _process(delta):
 	global_transform.origin -= transform.basis.z.normalized() * speed * delta
 	
 func _on_body_entered(body):
+	print("bullet hit")
+	print (body.name)
 	if body.has_method("take_damage"):
 		print("ow")
 		body.take_damage(damage)
 		destroy()
-
-
 
 func destroy():
 	queue_free()
