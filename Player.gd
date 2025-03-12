@@ -55,7 +55,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	
-	camera.position.y = standing_height / 2.0
+	camera.position.y = standing_height / 1.3
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -141,7 +141,7 @@ func _process(delta):
 		if is_crouching:
 			camera.position.y = crouch_height / 2.0
 		else:
-			camera.position.y = standing_height / 2.0
+			camera.position.y = standing_height / 1.3
 
 	else:
 		speed = 5.0
