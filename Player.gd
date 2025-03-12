@@ -18,7 +18,8 @@ var bulletSpawn
 var bulletScene = preload("res://player_bullet.tscn")
 var shootCooldown = 0.2
 var can_shoot = true
-
+var ammo = 16
+var reload_time = 3
 var max_health = 100
 var current_health: int = max_health
 
@@ -64,7 +65,7 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_just_pressed("shoot") and can_shoot and ammo > 0:
 		shoot()
 		can_shoot = false
 		#and anim_player.current_animation != "shoot":
@@ -149,7 +150,25 @@ func toggle_crouch():
 	is_crouching = !is_crouching
 
 func shoot():
-	var bullet = bulletScene.instantiate()
-	get_tree().root.add_child(bullet)
-	bullet.global_transform = bulletSpawn.global_transform
-	bullet.scale = Vector3(0.1, 0.1, 0.1)
+	# If ammo is greater than 0, proceed with shooting
+	if ammo > 0:
+		var bullet = bulletScene.instantiate()
+		get_tree().root.add_child(bullet)
+		bullet.global_transform = bulletSpawn.global_transform
+		bullet.scale = Vector3(0.1, 0.1, 0.1)
+	
+		# Decrease ammo by 1
+		ammo -= 1
+	
+		# If ammo reaches 0, trigger the reset with a delay
+		if ammo <= 0:
+			await reset_ammo_with_delay()  # Wait for ammo reset
+
+func reset_ammo_with_delay() -> void:
+	# Wait for the specified delay
+	await get_tree().create_timer(reload_time).timeout
+	
+	# After the delay, reset ammo to 1
+	ammo = 16
+	
+	
