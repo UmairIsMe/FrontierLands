@@ -9,6 +9,7 @@ signal health_changed(health_value)
 @onready var gunshot = $gunshot
 @export var crouch_height : float = 1.5  # Crouched height
 @export var standing_height : float = 2.5  # Standing height
+@onready var ammo_counter = get_node("/root/World/1/CanvasLayer/HUD/AmmoCounter")
 
 #Crouch and standing heights can be changed at any time
 @onready var health_bar: ProgressBar = $HealthBar
@@ -31,6 +32,7 @@ const JUMP_VELOCITY = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20.0
+var is_reloading = false 
 
 func take_damage(amount) -> void:
 	current_health -= amount
@@ -60,6 +62,18 @@ func _ready():
 	camera.current = true
 	
 	camera.position.y = standing_height / 1.3
+	if not ammo_counter:
+		print("no ammo label cuh")
+	else:
+		update_ammo_counter()
+	
+func update_ammo_counter():
+	if ammo_counter:
+		ammo_counter.text = "Ammo:" + str(ammo)
+	else:
+		print("no label cuh")
+	
+
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -79,7 +93,11 @@ func _unhandled_input(event):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
-			
+
+	# Detect the reload key (R key)
+	if Input.is_action_just_pressed("reload") and not is_reloading and ammo < 16:
+		start_reload()
+
 
 func _physics_process(delta):
 	
@@ -170,9 +188,7 @@ func shoot():
 		# Decrease ammo by 1
 		ammo -= 1
 	
-		# If ammo reaches 0, trigger the reset with a delay
-		if ammo <= 0:
-			await reset_ammo_with_delay()  # Wait for ammo reset
+
 
 func reset_ammo_with_delay() -> void:
 	# Wait for the specified delay
@@ -180,5 +196,13 @@ func reset_ammo_with_delay() -> void:
 	
 	# After the delay, reset ammo to 1
 	ammo = 16
-	
-	
+
+
+
+func start_reload():
+	is_reloading = true
+	#anim_player.play("reload")
+	await get_tree().create_timer(1.5).timeout
+	ammo = 16  # Reset ammo after reload
+	update_ammo_counter()  # Update the counter after reload
+	is_reloading = false
