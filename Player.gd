@@ -21,7 +21,7 @@ var can_shoot = true
 var ammo = 16
 var reload_time = 3
 var max_health = 100
-var current_health: int = max_health
+var current_health = max_health
 
 
 var speed = 5.0
@@ -34,7 +34,7 @@ var gravity = 20.0
 
 func take_damage(amount) -> void:
 	current_health -= amount
-	current_health = clamp(current_health, 0, max_health)
+#	current_health = clamp(current_health, 0, max_health)
 	
 	if health_bar:
 		health_bar.value == current_health
@@ -43,10 +43,10 @@ func take_damage(amount) -> void:
 		die()
 	
 func die() -> void:
-	print("Player has died")
-	print(current_health)
+#	print("Player has died")
+#	print(current_health)
 	position = Vector3.ZERO
-	current_health == max_health
+	current_health = max_health
 	
 
 
@@ -82,6 +82,10 @@ func _unhandled_input(event):
 			
 
 func _physics_process(delta):
+	
+	$Camera3D/Health.text=str(current_health)
+	
+	
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.

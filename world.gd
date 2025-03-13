@@ -42,3 +42,7 @@ func remove_player(peer_id):
 
 func update_health_bar(health_value):
 	health_bar.value = health_value
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
