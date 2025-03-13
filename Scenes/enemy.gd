@@ -83,6 +83,6 @@ func _on_timer_timeout():
 
 
 func take_damage(damage_amount):
-	health -= 1
+	health -= damage_amount
 	if health <=0:
 		queue_free()
