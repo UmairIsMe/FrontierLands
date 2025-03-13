@@ -1,8 +1,8 @@
-
-[gd_scene load_steps=145 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=149 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 [ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
+[ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
 [ext_resource type="Texture2D" uid="uid://d3vf70f35hwbm" path="res://textures/metalgrid/metalgrid2_AO.png" id="3_0tvp7"]
 [ext_resource type="Texture2D" uid="uid://dyrr2si0y7stw" path="res://textures/metalgrid/metalgrid2_metallic.png" id="4_7gjqj"]
 [ext_resource type="Texture2D" uid="uid://umg2dbwr1tlw" path="res://textures/metalgrid/metalgrid2_roughness.png" id="5_ic1wy"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bnte8ys1twwna" path="res://textures/aluminiumfloor/textured-aluminum_ao.png" id="7_wd3ir"]
 [ext_resource type="Texture2D" uid="uid://b776h8pii1dmh" path="res://textures/aluminiumfloor/textured-aluminum_metallic.png" id="8_nsltx"]
 [ext_resource type="Texture2D" uid="uid://bb41712usju7a" path="res://textures/aluminiumfloor/textured-aluminum_height.png" id="9_c4ds7"]
-[ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
 albedo_texture = ExtResource("2_2wrj5")
@@ -20,7 +19,6 @@ roughness_texture = ExtResource("5_ic1wy")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(10, 10, 10)
-
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ev2dd"]
 material = SubResource("StandardMaterial3D_b7n4q")
