@@ -9,10 +9,12 @@ signal health_changed(health_value)
 @onready var gunshot = $gunshot
 @export var crouch_height : float = 1.5  # Crouched height
 @export var standing_height : float = 2.5  # Standing height
-@onready var ammo_counter = get_node("/root/World/1/CanvasLayer/HUD/AmmoCounter")
+@onready var ammo_counter = null
+var is_ready = false
 
 #Crouch and standing heights can be changed at any time
 @onready var health_bar: ProgressBar = $HealthBar
+
 
 var is_crouching : bool = false
 var bulletSpawn
@@ -62,9 +64,15 @@ func _ready():
 	camera.current = true
 	
 	camera.position.y = standing_height / 1.3
-	if not ammo_counter:
-		print("no ammo label cuh")
+
+	ammo_counter = get_node("/root/World/1/CanvasLayer/HUD/AmmoCounter")
+	if ammo_counter:
+		update_ammo_counter()
 	else:
+		is_ready = true
+		print("ammo counte rnot foun")
+		
+	if is_ready and ammo_counter:
 		update_ammo_counter()
 	
 func update_ammo_counter():
