@@ -44,6 +44,7 @@ func take_damage(amount) -> void:
 	
 func die() -> void:
 	print("Player has died")
+	queue_free()
 
 
 func _enter_tree():
@@ -119,9 +120,10 @@ func play_shoot_effects():
 @rpc("any_peer")
 func receive_damage():
 	current_health -= 1
-	if current_health <= 0:
-		current_health = 3
-		position = Vector3.ZERO
+	print("player health")
+	if current_health >= 0:
+		current_health -= 20
+#		position = Vector3.ZERO
 	health_changed.emit(current_health)
 
 func _on_animation_player_animation_finished(anim_name):
