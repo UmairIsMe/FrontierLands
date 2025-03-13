@@ -37,14 +37,17 @@ func take_damage(amount) -> void:
 	current_health = clamp(current_health, 0, max_health)
 	
 	if health_bar:
-		health_bar.value = current_health
+		health_bar.value == current_health
 		
 	if current_health <= 0:
 		die()
 	
 func die() -> void:
 	print("Player has died")
-	queue_free()
+	print(current_health)
+	position = Vector3.ZERO
+	current_health == max_health
+	
 
 
 func _enter_tree():
@@ -118,13 +121,14 @@ func play_shoot_effects():
 	muzzle_flash.emitting = true
 
 @rpc("any_peer")
-func receive_damage():
-	current_health -= 1
-	print("player health")
-	if current_health >= 0:
-		current_health -= 20
+#func receive_damage():
+#	current_health -= 20
+#	print("player health")
+#	if current_health <= 0:
+#		current_health == max_health
 #		position = Vector3.ZERO
-	health_changed.emit(current_health)
+#		die()
+#	health_changed.emit(current_health)
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
