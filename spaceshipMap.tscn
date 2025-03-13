@@ -1,6 +1,7 @@
-[gd_scene load_steps=137 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=141 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
+[ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ev2dd"]
 size = Vector2(35, 37)
@@ -409,6 +410,23 @@ size = Vector2(7, 8)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7a476"]
 data = PackedVector3Array(3.5, 0, 4, -3.5, 0, 4, 3.5, 0, -4, -3.5, 0, 4, -3.5, 0, -4, 3.5, 0, -4)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
+panorama = ExtResource("2_ovteb")
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_1xf28"]
+sky_material = SubResource("PanoramaSkyMaterial_xvs8y")
+
+[sub_resource type="Environment" id="Environment_r27kf"]
+background_mode = 2
+sky = SubResource("Sky_1xf28")
+ambient_light_source = 3
+ambient_light_color = Color(0.82606, 0.82606, 0.82606, 1)
+ambient_light_sky_contribution = 0.92
+ambient_light_energy = 5.55
+adjustment_enabled = true
+adjustment_saturation = 1.25
 
 [node name="SpaceshipMap" type="Node3D"]
 
@@ -1092,3 +1110,6 @@ mesh = SubResource("PlaneMesh_o07lb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exterior Walls/MeshInstance3D31/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7a476")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r27kf")
