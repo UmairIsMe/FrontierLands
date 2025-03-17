@@ -37,12 +37,8 @@ var gravity = 20.0
 var is_reloading = false 
 
 func take_damage(amount) -> void:
-	current_health -= amount
-#	current_health = clamp(current_health, 0, max_health)
-	
-	if health_bar:
-		health_bar.value == current_health
-		
+	current_health = max(current_health - amount, 0)
+	health_changed.emit(current_health)
 	if current_health <= 0:
 		die()
 	
@@ -74,6 +70,7 @@ func _ready():
 		
 	if is_ready and ammo_counter:
 		update_ammo_counter()
+	
 	
 func update_ammo_counter():
 	if ammo_counter:
@@ -214,3 +211,10 @@ func start_reload():
 	ammo = 16  # Reset ammo after reload
 	update_ammo_counter()  # Update the counter after reload
 	is_reloading = false
+
+
+func respawn():
+	await get_tree().create_timer(5).timeout  # Optional delay before respawning
+	current_health = max_health  # Reset health
+	global_position = Vector3.ZERO  # Move player back to spawn
+	health_changed.emit(current_health)  # Update health bar
