@@ -39,19 +39,8 @@ func _physics_process(_delta):
 	var new_velocity = direction * SPEED
 	velocity = new_velocity
 	move_and_slide()
-#	aim_gun_at_player()
+	aim_gun_at_player()
 	
-#func aim_gun_at_player():
-#	var current_location = global_transform.origin
-#	var next_location = nav_agent.get_next_path_position()
-#	look_at(next_location) # Enemy will turn to face player
-#	if player:
-		# Calculate the direction from the gun to the player
-#		var pistol_position = pistol.global_transform.origin
-#		var player_position = player.global_transform.origin
-#		var aim_direction = (player_position - pistol_position).normalized()
-#		# Make the gun rotate to face the player
-#		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
 		
 #this is the code used for the enemy before
 #func _physics_process(_delta):
@@ -65,8 +54,14 @@ func _physics_process(_delta):
 #	velocity = new_veloicty
 #	
 #	move_and_slide()
-	
-	
+func aim_gun_at_player():
+	if player:
+		# Calculate the direction from the gun to the player
+		var pistol_position = pistol.global_transform.origin
+		var player_position = player.global_transform.origin
+		var aim_direction = (player_position - pistol_position).normalized()
+		# Make the gun rotate to face the player
+		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
 
 func shoot_bullet():
 	# Create the bullet instance
@@ -76,6 +71,9 @@ func shoot_bullet():
 	bullet_instance.global_transform = bullet_spawn.global_transform
 	# Add bullet to the scene
 	get_tree().current_scene.add_child(bullet_instance)
+
+
+
 
 
 func _on_timer_timeout():
