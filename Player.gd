@@ -65,7 +65,7 @@ func _ready():
 	
 	camera.position.y = standing_height / 1.3
 
-	ammo_counter = get_node("/root/World/1/CanvasLayer/HUD/AmmoCounter")
+	ammo_counter = get_node("Camera3D/AmmoCounter")
 	if ammo_counter:
 		update_ammo_counter()
 	else:
@@ -74,10 +74,10 @@ func _ready():
 		
 	if is_ready and ammo_counter:
 		update_ammo_counter()
-	
+
 func update_ammo_counter():
 	if ammo_counter:
-		ammo_counter.text = "Ammo:" + str(ammo)
+		ammo_counter.text = "Ammo: " + str(ammo)
 	else:
 		print("no label cuh")
 	
@@ -195,6 +195,9 @@ func shoot():
 	
 		# Decrease ammo by 1
 		ammo -= 1
+
+		# Update the ammo counter
+		update_ammo_counter()
 	
 
 
