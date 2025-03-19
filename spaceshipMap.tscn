@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=149 format=3 uid="uid://txw564016hgy"]
-=======
 [gd_scene load_steps=148 format=3 uid="uid://txw564016hgy"]
->>>>>>> b0bd470a659559f941b7366b25c421882d798bfa
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 [ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
@@ -14,6 +10,23 @@
 [ext_resource type="Texture2D" uid="uid://bnte8ys1twwna" path="res://textures/aluminiumfloor/textured-aluminum_ao.png" id="7_wd3ir"]
 [ext_resource type="Texture2D" uid="uid://b776h8pii1dmh" path="res://textures/aluminiumfloor/textured-aluminum_metallic.png" id="8_nsltx"]
 [ext_resource type="Texture2D" uid="uid://bb41712usju7a" path="res://textures/aluminiumfloor/textured-aluminum_height.png" id="9_c4ds7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
+panorama = ExtResource("2_ovteb")
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_1xf28"]
+sky_material = SubResource("PanoramaSkyMaterial_xvs8y")
+
+[sub_resource type="Environment" id="Environment_r27kf"]
+background_mode = 2
+sky = SubResource("Sky_1xf28")
+ambient_light_source = 3
+ambient_light_color = Color(0.82606, 0.82606, 0.82606, 1)
+ambient_light_sky_contribution = 0.92
+ambient_light_energy = 5.55
+adjustment_enabled = true
+adjustment_saturation = 1.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
 albedo_texture = ExtResource("2_2wrj5")
@@ -67,39 +80,39 @@ size = Vector2(20, 15)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g32j4"]
 data = PackedVector3Array(10, 0, 7.5, -10, 0, 7.5, 10, 0, -7.5, -10, 0, 7.5, -10, 0, -7.5, 10, 0, -7.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgvpi"]
-albedo_texture = ExtResource("6_b880m")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubk3e"]
+albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
-metallic_texture = ExtResource("8_nsltx")
-roughness_texture = ExtResource("9_c4ds7")
+metallic_texture = ExtResource("4_7gjqj")
+roughness_texture = ExtResource("5_ic1wy")
 ao_enabled = true
-ao_texture = ExtResource("7_wd3ir")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
+ao_texture = ExtResource("3_0tvp7")
+uv1_scale = Vector3(0.28, 0.28, 0.28)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rtvs4"]
-material = SubResource("StandardMaterial3D_vgvpi")
+material = SubResource("StandardMaterial3D_ubk3e")
 size = Vector2(60, 5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_12ssm"]
 data = PackedVector3Array(30, 0, 2.5, -30, 0, 2.5, 30, 0, -2.5, -30, 0, 2.5, -30, 0, -2.5, 30, 0, -2.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrvjf"]
-albedo_texture = ExtResource("6_b880m")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbow6"]
+albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
-metallic_texture = ExtResource("8_nsltx")
-roughness_texture = ExtResource("9_c4ds7")
+metallic_texture = ExtResource("4_7gjqj")
+roughness_texture = ExtResource("5_ic1wy")
 ao_enabled = true
-ao_texture = ExtResource("7_wd3ir")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
+ao_texture = ExtResource("3_0tvp7")
+uv1_scale = Vector3(0.28, 0.28, 0.28)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8u4vn"]
-material = SubResource("StandardMaterial3D_vrvjf")
+material = SubResource("StandardMaterial3D_mbow6")
 size = Vector2(15, 23.75)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ejyff"]
-data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f1xia"]
+data = PackedVector3Array(7.5, 0, 11.875, -7.5, 0, 11.875, 7.5, 0, -11.875, -7.5, 0, 11.875, -7.5, 0, -11.875, 7.5, 0, -11.875)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6r3n1"]
 material = SubResource("StandardMaterial3D_ubk3e")
@@ -428,24 +441,15 @@ size = Vector2(7, 8)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7a476"]
 data = PackedVector3Array(3.5, 0, 4, -3.5, 0, 4, 3.5, 0, -4, -3.5, 0, 4, -3.5, 0, -4, 3.5, 0, -4)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
-panorama = ExtResource("2_ovteb")
-energy_multiplier = 2.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8xcw"]
+albedo_texture = ExtResource("6_b880m")
+metallic = 1.0
+metallic_texture = ExtResource("8_nsltx")
+roughness_texture = ExtResource("9_c4ds7")
+ao_enabled = true
+ao_texture = ExtResource("7_wd3ir")
+uv1_triplanar = true
 
-<<<<<<< HEAD
-[sub_resource type="Sky" id="Sky_1xf28"]
-sky_material = SubResource("PanoramaSkyMaterial_xvs8y")
-
-[sub_resource type="Environment" id="Environment_r27kf"]
-background_mode = 2
-sky = SubResource("Sky_1xf28")
-ambient_light_source = 3
-ambient_light_color = Color(0.82606, 0.82606, 0.82606, 1)
-ambient_light_sky_contribution = 0.92
-ambient_light_energy = 5.55
-adjustment_enabled = true
-adjustment_saturation = 1.25
-=======
 [sub_resource type="PlaneMesh" id="PlaneMesh_dhh82"]
 material = SubResource("StandardMaterial3D_d8xcw")
 size = Vector2(8, 0.6)
@@ -481,9 +485,11 @@ size = Vector2(40, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3cdhe"]
 data = PackedVector3Array(20, 0, 1, -20, 0, 1, 20, 0, -1, -20, 0, 1, -20, 0, -1, 20, 0, -1)
->>>>>>> b0bd470a659559f941b7366b25c421882d798bfa
 
 [node name="SpaceshipMap" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r27kf")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://player.tscn")
@@ -583,7 +589,7 @@ mesh = SubResource("PlaneMesh_8u4vn")
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor/AttackerSpawn"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/AttackerSpawn/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ejyff")
+shape = SubResource("ConcavePolygonShape3D_f1xia")
 
 [node name="AttackerBranchBMain" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 21.25)
@@ -1104,10 +1110,6 @@ mesh = SubResource("PlaneMesh_o07lb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exterior Walls/MeshInstance3D31/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7a476")
 
-<<<<<<< HEAD
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_r27kf")
-=======
 [node name="Extra Models" type="Node" parent="."]
 
 [node name="MidAttackerEntranceTextureCover" type="Node" parent="Extra Models"]
@@ -1172,4 +1174,3 @@ mesh = SubResource("PlaneMesh_vdlw4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/AttackerBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3cdhe")
->>>>>>> b0bd470a659559f941b7366b25c421882d798bfa
