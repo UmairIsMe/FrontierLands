@@ -164,7 +164,7 @@ func _on_animation_player_animation_finished(anim_name):
 func _process(delta):
 	# Check if the player is holding shift to run
 	# Speeds are subject to change
-	if Input.is_action_pressed("player_run"):
+	if Input.is_action_pressed("player_run") and is_crouching == false:
 		speed = 12.0
 	elif Input.is_action_just_pressed("ui_crouch"):
 		print("Crouch")
