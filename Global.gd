@@ -11,3 +11,5 @@ func high_resolution_display_mode(status):
 
 func _ready():
 	high_resolution_display_mode(true)
+
+var player = null
