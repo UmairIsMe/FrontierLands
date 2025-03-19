@@ -62,6 +62,7 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+	Global.player = self
 	if not is_multiplayer_authority(): return
 	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
