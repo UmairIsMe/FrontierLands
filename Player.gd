@@ -25,7 +25,7 @@ var ammo = 16
 var reload_time = 3
 var max_health = 100
 var current_health = max_health
-
+var health:int = 100
 
 var speed = 5.0
 const JUMP_VELOCITY = 10.0
@@ -37,10 +37,18 @@ var gravity = 20.0
 var is_reloading = false 
 
 func take_damage(amount) -> void:
-	current_health = max(current_health - amount, 0)
-	health_changed.emit(current_health)
-	if current_health <= 0:
-		die()
+	health -= 20
+	print("damage taken")
+	if health <= 0:
+		print("Game Over!")
+		# Reset the player's health and position
+		health = max_health
+		position = Vector3.ZERO
+		# Emit the health_changed signal with the reset health value
+		health_changed.emit(health)
+	else:
+		# Emit the health_changed signal with the updated health value
+		health_changed.emit(health)
 	
 func die() -> void:
 #	print("Player has died")
