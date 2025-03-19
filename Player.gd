@@ -61,6 +61,7 @@ func die() -> void:
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
+
 func _ready():
 	if not is_multiplayer_authority(): return
 	bulletSpawn = get_node("Camera3D/bulletSpawn")
@@ -78,6 +79,7 @@ func _ready():
 		
 	if is_ready and ammo_counter:
 		update_ammo_counter()	
+	
 
 func update_ammo_counter():
 	if ammo_counter:
@@ -113,7 +115,6 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	$Camera3D/Health.text=str(current_health)
 	
 	
 	if not is_multiplayer_authority(): return
