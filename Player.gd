@@ -13,7 +13,6 @@ signal health_changed(health_value)
 var is_ready = false
 
 #Crouch and standing heights can be changed at any time
-@onready var health_bar: ProgressBar = $HealthBar
 
 
 var is_crouching : bool = false
