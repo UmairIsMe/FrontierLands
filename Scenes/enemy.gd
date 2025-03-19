@@ -60,6 +60,8 @@ func _physics_process(_delta):
 #	
 #	move_and_slide()
 #not working, need to fix
+
+#this does not work
 func aim_gun_at_player():
 	if player:
 		# Calculate the direction from the gun to the player
