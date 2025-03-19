@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var nav_agent = $NavigationAgent3D
 @onready var enemy = $enemy
 @onready var pistol = $Pistol  # Reference the gun node (pistol) in the enemy scene
-@onready var player = null #get_node("/root/Player")  
+@onready var player = get_node("/root/Player")  
 var SPEED = 0
 const JUMP_VELOCITY = 4.5
 var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
@@ -72,8 +72,8 @@ func aim_gun_at_player():
 		print("Aim direction: ", aim_direction)  # Debug print
 		# Make the gun rotate to face the player
 		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
-#	else:
-#		print("Player node not found")  # Debug print
+	else:
+		print("Player node not found")  # Debug print
 
 func shoot_bullet():
 	# Create the bullet instance
