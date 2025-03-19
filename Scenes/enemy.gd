@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var nav_agent = $NavigationAgent3D
 @onready var enemy = $enemy
 @onready var pistol = $Pistol  # Reference the gun node (pistol) in the enemy scene
-@onready var player = get_node("res://Player.gd") 
+@onready var player = null #get_node("/root/Player")  
 var SPEED = 0
 const JUMP_VELOCITY = 4.5
 var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
@@ -39,34 +39,27 @@ func _physics_process(_delta):
 	var new_velocity = direction * SPEED
 	velocity = new_velocity
 	move_and_slide()
-#	aim_gun_at_player()
 	
-#func aim_gun_at_player():
-#	var current_location = global_transform.origin
-#	var next_location = nav_agent.get_next_path_position()
-#	look_at(next_location) # Enemy will turn to face player
-#	if player:
+		# Attempt to find the player node if not already found
+	if Global.player == null:
+		player = get_tree().root.get_node("root/World/1")
+	print(Global.player)
+	aim_gun_at_player()
+	
+
+#This will make the enemy aim at the player
+func aim_gun_at_player():
+	if Global.player != null:
 		# Calculate the direction from the gun to the player
-#		var pistol_position = pistol.global_transform.origin
-#		var player_position = player.global_transform.origin
-#		var aim_direction = (player_position - pistol_position).normalized()
-#		# Make the gun rotate to face the player
-#		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
-		
-#this is the code used for the enemy before
-#func _physics_process(_delta):
-#	var current_location = global_transform.origin
-#	var next_location = nav_agent.get_next_path_position()
-#	look_at(next_location) # Enemy will turn to face player
-#	
-#	# Vector Maths
-#	var new_veloicty = (next_location-current_location).normalized() * SPEED
-#
-#	velocity = new_veloicty
-#	
-#	move_and_slide()
-	
-	
+		var pistol_position = pistol.global_transform.origin
+		var player_position = Global.player.global_transform.origin
+		print("Player position: ", player_position)  # Debug print
+		var aim_direction = (player_position - pistol_position).normalized()
+		print("Aim direction: ", aim_direction)  # Debug print
+		# Make the gun rotate to face the player
+		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
+	else:
+		print("Player node not found")  # Debug print
 
 func shoot_bullet():
 	# Create the bullet instance
@@ -78,11 +71,14 @@ func shoot_bullet():
 	get_tree().current_scene.add_child(bullet_instance)
 
 
+
+
+
 func _on_timer_timeout():
 	shoot_bullet()
 
 
 func take_damage(damage_amount):
-	health -= 1
+	health -= damage_amount
 	if health <=0:
 		queue_free()
