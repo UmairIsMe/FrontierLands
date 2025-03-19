@@ -48,6 +48,7 @@ func _physics_process(_delta):
 		
 #this is the code used for the enemy before
 #func _physics_process(_delta):
+
 #	var current_location = global_transform.origin
 #	var next_location = nav_agent.get_next_path_position()
 #	look_at(next_location) # Enemy will turn to face player
@@ -58,6 +59,7 @@ func _physics_process(_delta):
 #	velocity = new_veloicty
 #	
 #	move_and_slide()
+#not working, need to fix
 func aim_gun_at_player():
 	if player:
 		# Calculate the direction from the gun to the player
