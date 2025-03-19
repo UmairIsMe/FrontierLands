@@ -13,6 +13,7 @@ signal health_changed(health_value)
 var is_ready = false
 
 #Crouch and standing heights can be changed at any time
+#@onready var health_bar: ProgressBar = $HealthBar
 
 
 var is_crouching : bool = false
@@ -60,7 +61,9 @@ func die() -> void:
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
+
 func _ready():
+	Global.player = self
 	if not is_multiplayer_authority(): return
 	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -77,6 +80,7 @@ func _ready():
 		
 	if is_ready and ammo_counter:
 		update_ammo_counter()	
+	
 
 func update_ammo_counter():
 	if ammo_counter:
@@ -112,7 +116,6 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	$Camera3D/Health.text=str(current_health)
 	
 	
 	if not is_multiplayer_authority(): return
