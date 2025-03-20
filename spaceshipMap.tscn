@@ -1,5 +1,6 @@
-[gd_scene load_steps=168 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=179 format=3 uid="uid://txw564016hgy"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_8bqxf"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 [ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
 [ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
@@ -22,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://boq4ryqk13gjh" path="res://textures/metalplate/armor-plating1_height.png" id="16_j20rq"]
 [ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels/worn-modern-panels_normal-ogl.png" id="16_khsst"]
 [ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels/worn-modern-panels_height.png" id="17_4edwr"]
+[ext_resource type="FontFile" uid="uid://cikbh0cijo3yi" path="res://Fonts/cyberformhalf.ttf" id="24_u31hb"]
+[ext_resource type="FontFile" uid="uid://c76krp3u68v8j" path="res://Fonts/Cyberfall Italic.otf" id="25_qp7nw"]
+[ext_resource type="Texture2D" uid="uid://ntptst52fu81" path="res://icons/7ddc6769-3759-4691-97e3-3555e34b3367.webp" id="26_73ft6"]
+[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="27_rarf2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
 panorama = ExtResource("2_ovteb")
@@ -559,11 +564,43 @@ size = Vector2(25, 2)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m0683"]
 data = PackedVector3Array(12.5, 0, 1, -12.5, 0, 1, 12.5, 0, -1, -12.5, 0, 1, -12.5, 0, -1, 12.5, 0, -1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_lkyfv"]
-material = SubResource("StandardMaterial3D_dfic2")
-size = Vector3(7.75, 0.1, 0.1)
+[sub_resource type="FontVariation" id="FontVariation_f3ral"]
+base_font = ExtResource("24_u31hb")
+
+[sub_resource type="FontVariation" id="FontVariation_xjldb"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="FontVariation" id="FontVariation_7op0m"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="FontVariation" id="FontVariation_yqtyc"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyerq"]
+bg_color = Color(1, 0.117647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1dt8"]
+bg_color = Color(0.00392157, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_vcwj7"]
+script/source = "extends ProgressBar
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func update_health(value):
+	self.value = value
+	print(\"Health bar updated to:\", value)  # Debug message
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="SpaceshipMap" type="Node3D"]
+script = ExtResource("1_8bqxf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r27kf")
@@ -1270,12 +1307,102 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/Node/MidBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m0683")
 
-[node name="RampTextureCover" type="MeshInstance3D" parent="Extra Models/Node"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.55, 0, 1.875)
-mesh = SubResource("BoxMesh_lkyfv")
-skeleton = NodePath("../..")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RampTextureCover2" type="MeshInstance3D" parent="Extra Models/Node"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.83, -0.5, 1.875)
-mesh = SubResource("BoxMesh_lkyfv")
-skeleton = NodePath("../..")
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 423.0
+offset_top = 227.0
+offset_right = -423.0
+offset_bottom = -227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_f3ral")
+theme_override_font_sizes/font_size = 30
+text = "Terminal Breach"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SinglePlayer" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_xjldb")
+text = "Single Player"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_7op0m")
+text = "Options"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_yqtyc")
+text = "Quit"
+
+[node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+show_behind_parent = true
+position = Vector2(131, 206)
+scale = Vector2(1.13839, 1.03418)
+texture = ExtResource("26_73ft6")
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.03, 0.03)
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("27_rarf2")
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 70.0
+offset_right = -330.0
+offset_bottom = -536.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qyerq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u1dt8")
+step = 1.0
+value = 100.0
+script = SubResource("GDScript_vcwj7")
+
+[node name="SpawnPoint" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("../spawn_point")
+
+[node name="spawn_point" type="Node3D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
