@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=179 format=3 uid="uid://txw564016hgy"]
+
 
 [ext_resource type="Script" path="res://world.gd" id="1_8bqxf"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
@@ -46,6 +48,7 @@ adjustment_enabled = true
 adjustment_saturation = 1.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
+albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -100,6 +103,7 @@ size = Vector2(20, 15)
 data = PackedVector3Array(10, 0, 7.5, -10, 0, 7.5, 10, 0, -7.5, -10, 0, 7.5, -10, 0, -7.5, 10, 0, -7.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubk3e"]
+albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -119,6 +123,7 @@ size = Vector2(60, 5)
 data = PackedVector3Array(30, 0, 2.5, -30, 0, 2.5, 30, 0, -2.5, -30, 0, 2.5, -30, 0, -2.5, 30, 0, -2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbow6"]
+albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -163,6 +168,7 @@ size = Vector2(20, 15)
 data = PackedVector3Array(10, 0, 7.5, -10, 0, 7.5, 10, 0, -7.5, -10, 0, 7.5, -10, 0, -7.5, 10, 0, -7.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy3b2"]
+albedo_color = Color(0.68101, 0.68101, 0.68101, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -549,23 +555,17 @@ size = Vector3(15, 0.1, 0.1)
 material = SubResource("StandardMaterial3D_dfic2")
 size = Vector3(15, 0.1, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44npl"]
-albedo_texture = ExtResource("6_b880m")
-metallic = 1.0
-metallic_texture = ExtResource("8_nsltx")
-roughness_texture = ExtResource("9_c4ds7")
-normal_enabled = true
-normal_texture = ExtResource("11_lug6u")
-ao_enabled = true
-ao_texture = ExtResource("7_wd3ir")
-uv1_triplanar = true
+[sub_resource type="BoxMesh" id="BoxMesh_3hnno"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(18.5, 0.1, 0.1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vpyo1"]
-material = SubResource("StandardMaterial3D_44npl")
+material = SubResource("StandardMaterial3D_h0vn1")
 size = Vector2(25, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m0683"]
 data = PackedVector3Array(12.5, 0, 1, -12.5, 0, 1, 12.5, 0, -1, -12.5, 0, 1, -12.5, 0, -1, 12.5, 0, -1)
+
 
 [sub_resource type="FontVariation" id="FontVariation_f3ral"]
 base_font = ExtResource("24_u31hb")
@@ -601,6 +601,7 @@ func update_health(value):
 func _process(delta: float) -> void:
 	pass
 "
+
 
 [node name="SpaceshipMap" type="Node3D"]
 script = ExtResource("1_8bqxf")
@@ -1287,16 +1288,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5, -0.5, 17.42)
 mesh = SubResource("BoxMesh_rst4a")
 skeleton = NodePath("../..")
 
-[node name="MidBSmallRamp" type="MeshInstance3D" parent="Extra Models"]
+[node name="RampTextureCover3" type="MeshInstance3D" parent="Extra Models/AttackerBSmallRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, -0.5, 17.42)
+mesh = SubResource("BoxMesh_3hnno")
+skeleton = NodePath("../..")
+
+[node name="RampTextureCover4" type="MeshInstance3D" parent="Extra Models/AttackerBSmallRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, 18.7)
+mesh = SubResource("BoxMesh_3hnno")
+skeleton = NodePath("../..")
+
+[node name="Node" type="Node" parent="Extra Models"]
+
+[node name="MidBSmallRamp" type="MeshInstance3D" parent="Extra Models/Node"]
 transform = Transform3D(-4.37114e-08, 0.34202, 0.939692, 0, 0.939692, -0.34202, -1, -1.49502e-08, -4.10752e-08, 18.44, -0.34, -6.23162)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_vpyo1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/MidBSmallRamp"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/Node/MidBSmallRamp"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/MidBSmallRamp/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/Node/MidBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m0683")
+
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1397,3 +1411,4 @@ spawn_path = NodePath("../spawn_point")
 [node name="spawn_point" type="Node3D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
+
