@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=167 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 [ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
@@ -7,9 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://dyrr2si0y7stw" path="res://textures/metalgrid/metalgrid2_metallic.png" id="4_7gjqj"]
 [ext_resource type="Texture2D" uid="uid://umg2dbwr1tlw" path="res://textures/metalgrid/metalgrid2_roughness.png" id="5_ic1wy"]
 [ext_resource type="Texture2D" uid="uid://nn1yxkblqbxx" path="res://textures/aluminiumfloor/textured-aluminum_albedo.png" id="6_b880m"]
+[ext_resource type="Texture2D" uid="uid://bxprug5ds4i21" path="res://textures/metalgrid/metalgrid2_normal-dx.png" id="6_rk3w3"]
 [ext_resource type="Texture2D" uid="uid://bnte8ys1twwna" path="res://textures/aluminiumfloor/textured-aluminum_ao.png" id="7_wd3ir"]
 [ext_resource type="Texture2D" uid="uid://b776h8pii1dmh" path="res://textures/aluminiumfloor/textured-aluminum_metallic.png" id="8_nsltx"]
 [ext_resource type="Texture2D" uid="uid://bb41712usju7a" path="res://textures/aluminiumfloor/textured-aluminum_height.png" id="9_c4ds7"]
+[ext_resource type="Texture2D" uid="uid://ct4phr7nap66l" path="res://textures/aluminiumfloor/textured-aluminum_normal-ogl.png" id="11_lug6u"]
+[ext_resource type="Texture2D" uid="uid://ch3r2q6v8cxht" path="res://textures/metalplate/armor-plating1_albedo.png" id="12_8bgur"]
+[ext_resource type="Texture2D" uid="uid://b4uffa0rc3t4k" path="res://textures/wornpanels/worn-modern-panels_albedo.png" id="13_4qamw"]
+[ext_resource type="Texture2D" uid="uid://3jmifh8v41w0" path="res://textures/metalplate/armor-plating1_ao.png" id="13_khhbu"]
+[ext_resource type="Texture2D" uid="uid://boor3kqoiod0m" path="res://textures/metalplate/armor-plating1_metallic.png" id="14_euxq4"]
+[ext_resource type="Texture2D" uid="uid://blwpjls73egw0" path="res://textures/wornpanels/worn-modern-panels_ao.png" id="14_unahx"]
+[ext_resource type="Texture2D" uid="uid://dhgsrywjxsl40" path="res://textures/wornpanels/worn-modern-panels_metallic.png" id="15_4tef2"]
+[ext_resource type="Texture2D" uid="uid://cbcjrrbp1jvkm" path="res://textures/metalplate/armor-plating1_normal-ogl.png" id="15_041ex"]
+[ext_resource type="Texture2D" uid="uid://boq4ryqk13gjh" path="res://textures/metalplate/armor-plating1_height.png" id="16_j20rq"]
+[ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels/worn-modern-panels_normal-ogl.png" id="16_khsst"]
+[ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels/worn-modern-panels_height.png" id="17_4edwr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
 panorama = ExtResource("2_ovteb")
@@ -33,6 +45,8 @@ albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
 roughness_texture = ExtResource("5_ic1wy")
+normal_enabled = true
+normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(10, 10, 10)
@@ -85,6 +99,8 @@ albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
 roughness_texture = ExtResource("5_ic1wy")
+normal_enabled = true
+normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.28, 0.28, 0.28)
@@ -102,6 +118,8 @@ albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
 roughness_texture = ExtResource("5_ic1wy")
+normal_enabled = true
+normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.28, 0.28, 0.28)
@@ -144,6 +162,8 @@ albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
 roughness_texture = ExtResource("5_ic1wy")
+normal_enabled = true
+normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.28, 0.28, 0.28)
@@ -446,6 +466,8 @@ albedo_texture = ExtResource("6_b880m")
 metallic = 1.0
 metallic_texture = ExtResource("8_nsltx")
 roughness_texture = ExtResource("9_c4ds7")
+normal_enabled = true
+normal_texture = ExtResource("11_lug6u")
 ao_enabled = true
 ao_texture = ExtResource("7_wd3ir")
 uv1_triplanar = true
@@ -459,6 +481,8 @@ albedo_texture = ExtResource("6_b880m")
 metallic = 1.0
 metallic_texture = ExtResource("8_nsltx")
 roughness_texture = ExtResource("9_c4ds7")
+normal_enabled = true
+normal_texture = ExtResource("11_lug6u")
 ao_enabled = true
 ao_texture = ExtResource("7_wd3ir")
 uv1_triplanar = true
@@ -472,6 +496,8 @@ albedo_texture = ExtResource("6_b880m")
 metallic = 1.0
 metallic_texture = ExtResource("8_nsltx")
 roughness_texture = ExtResource("9_c4ds7")
+normal_enabled = true
+normal_texture = ExtResource("11_lug6u")
 ao_enabled = true
 ao_texture = ExtResource("7_wd3ir")
 uv1_triplanar = true
@@ -480,11 +506,61 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_jm238")
 size = Vector2(8, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0vn1"]
+albedo_color = Color(0.319873, 0.319873, 0.319873, 1)
+albedo_texture = ExtResource("13_4qamw")
+metallic = 1.0
+metallic_texture = ExtResource("15_4tef2")
+roughness_texture = ExtResource("17_4edwr")
+normal_enabled = true
+normal_texture = ExtResource("16_khsst")
+ao_enabled = true
+ao_texture = ExtResource("14_unahx")
+uv1_triplanar = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_vdlw4"]
+material = SubResource("StandardMaterial3D_h0vn1")
 size = Vector2(40, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3cdhe"]
 data = PackedVector3Array(20, 0, 1, -20, 0, 1, 20, 0, -1, -20, 0, 1, -20, 0, -1, 20, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfic2"]
+albedo_texture = ExtResource("12_8bgur")
+metallic = 1.0
+metallic_texture = ExtResource("14_euxq4")
+roughness_texture = ExtResource("16_j20rq")
+normal_enabled = true
+normal_texture = ExtResource("15_041ex")
+ao_enabled = true
+ao_texture = ExtResource("13_khhbu")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fx3a6"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(15, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rst4a"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(15, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44npl"]
+albedo_texture = ExtResource("6_b880m")
+metallic = 1.0
+metallic_texture = ExtResource("8_nsltx")
+roughness_texture = ExtResource("9_c4ds7")
+normal_enabled = true
+normal_texture = ExtResource("11_lug6u")
+ao_enabled = true
+ao_texture = ExtResource("7_wd3ir")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vpyo1"]
+material = SubResource("StandardMaterial3D_44npl")
+size = Vector2(25, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m0683"]
+data = PackedVector3Array(12.5, 0, 1, -12.5, 0, 1, 12.5, 0, -1, -12.5, 0, 1, -12.5, 0, -1, 12.5, 0, -1)
 
 [node name="SpaceshipMap" type="Node3D"]
 
@@ -1130,24 +1206,6 @@ transform = Transform3D(-1, -4.37114e-08, -7.57103e-08, 0, 0.866025, -0.5, 8.742
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_u2pux")
 
-[node name="MidBExitTextureCover" type="Node" parent="Extra Models"]
-
-[node name="Top" type="MeshInstance3D" parent="Extra Models/MidBExitTextureCover"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.95, 0.1, 1.75)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_dhh82")
-skeleton = NodePath("../..")
-
-[node name="Side1" type="MeshInstance3D" parent="Extra Models/MidBExitTextureCover"]
-transform = Transform3D(-4.37114e-08, 0.5, 0.866025, 0, 0.866025, -0.5, -1, -2.18557e-08, -3.78552e-08, 19.115, -0.4, 1.75)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_6cav6")
-
-[node name="Side2" type="MeshInstance3D" parent="Extra Models/MidBExitTextureCover"]
-transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, 16.785, -0.4, 1.75)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_u2pux")
-
 [node name="AttackerSpawnExitTextureCover" type="Node" parent="Extra Models"]
 
 [node name="Top" type="MeshInstance3D" parent="Extra Models/AttackerSpawnExitTextureCover"]
@@ -1166,11 +1224,35 @@ transform = Transform3D(-1, -4.37114e-08, -7.57103e-08, 0, 0.866025, -0.5, 8.742
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_u2pux")
 
-[node name="AttackerBSmallRamp" type="MeshInstance3D" parent="Extra Models"]
+[node name="AttackerBSmallRamp" type="Node" parent="Extra Models"]
+
+[node name="AttackerBSmallRamp" type="MeshInstance3D" parent="Extra Models/AttackerBSmallRamp"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 42.5, -0.34, 17.81)
 mesh = SubResource("PlaneMesh_vdlw4")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/AttackerBSmallRamp"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/AttackerBSmallRamp/AttackerBSmallRamp"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/AttackerBSmallRamp/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/AttackerBSmallRamp/AttackerBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3cdhe")
+
+[node name="RampTextureCover" type="MeshInstance3D" parent="Extra Models/AttackerBSmallRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5, 0, 18.7)
+mesh = SubResource("BoxMesh_fx3a6")
+skeleton = NodePath("../..")
+
+[node name="RampTextureCover2" type="MeshInstance3D" parent="Extra Models/AttackerBSmallRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5, -0.5, 17.42)
+mesh = SubResource("BoxMesh_rst4a")
+skeleton = NodePath("../..")
+
+[node name="MidBSmallRamp" type="MeshInstance3D" parent="Extra Models"]
+transform = Transform3D(-4.37114e-08, 0.34202, 0.939692, 0, 0.939692, -0.34202, -1, -1.49502e-08, -4.10752e-08, 18.44, -0.34, -6.23162)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_vpyo1")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/MidBSmallRamp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/MidBSmallRamp/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m0683")
