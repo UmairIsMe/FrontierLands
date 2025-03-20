@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=179 format=3 uid="uid://txw564016hgy"]
-
 
 [ext_resource type="Script" path="res://world.gd" id="1_8bqxf"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
@@ -566,7 +564,6 @@ size = Vector2(25, 2)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m0683"]
 data = PackedVector3Array(12.5, 0, 1, -12.5, 0, 1, 12.5, 0, -1, -12.5, 0, 1, -12.5, 0, -1, 12.5, 0, -1)
 
-
 [sub_resource type="FontVariation" id="FontVariation_f3ral"]
 base_font = ExtResource("24_u31hb")
 
@@ -601,7 +598,6 @@ func update_health(value):
 func _process(delta: float) -> void:
 	pass
 "
-
 
 [node name="SpaceshipMap" type="Node3D"]
 script = ExtResource("1_8bqxf")
@@ -1311,7 +1307,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/Node/MidBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m0683")
 
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
@@ -1411,4 +1406,3 @@ spawn_path = NodePath("../spawn_point")
 [node name="spawn_point" type="Node3D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
-
