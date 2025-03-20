@@ -172,7 +172,7 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
 [node name="bulletSpawn" type="Node3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501696, -0.256557, -0.692686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501696, -0.200336, -0.438418)
 
 [node name="AmmoCounter" type="Label" parent="Camera3D"]
 anchors_preset = 3
