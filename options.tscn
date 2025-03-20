@@ -368,7 +368,7 @@ position = Vector2(102, 188)
 scale = Vector2(1.145, 1.075)
 texture = ExtResource("2_hx7m7")
 
-[node name="Button" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="MouseSettings" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mouse Sensativity"
 
