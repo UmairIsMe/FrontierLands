@@ -13,7 +13,7 @@ signal health_changed(health_value)
 var is_ready = false
 
 #Crouch and standing heights can be changed at any time
-@onready var health_bar: ProgressBar = $HealthBar
+#@onready var health_bar: ProgressBar = $HealthBar
 
 
 var is_crouching : bool = false
@@ -25,7 +25,7 @@ var ammo = 16
 var reload_time = 3
 var max_health = 100
 var current_health = max_health
-
+var health:int = 100
 
 var speed = 5.0
 const JUMP_VELOCITY = 10.0
@@ -36,11 +36,19 @@ const JUMP_VELOCITY = 10.0
 var gravity = 20.0
 var is_reloading = false 
 
-func take_damage(amount) -> void:
-	current_health = max(current_health - amount, 0)
-	health_changed.emit(current_health)
-	if current_health <= 0:
-		die()
+func Take_damage(amount) -> void:
+	health -= 20
+	print("damage taken")
+	if health <= 0:
+		print("Game Over!")
+		# Reset the player's health and position
+		health = max_health
+		position = Vector3.ZERO
+		# Emit the health_changed signal with the reset health value
+		health_changed.emit(health)
+	else:
+		# Emit the health_changed signal with the updated health value
+		health_changed.emit(health)
 	
 func die() -> void:
 #	print("Player has died")
@@ -53,7 +61,9 @@ func die() -> void:
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
+
 func _ready():
+	Global.player = self
 	if not is_multiplayer_authority(): return
 	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -70,6 +80,7 @@ func _ready():
 		
 	if is_ready and ammo_counter:
 		update_ammo_counter()	
+	
 
 func update_ammo_counter():
 	if ammo_counter:
@@ -105,7 +116,6 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	$Camera3D/Health.text=str(current_health)
 	
 	
 	if not is_multiplayer_authority(): return
@@ -164,7 +174,7 @@ func _on_animation_player_animation_finished(anim_name):
 func _process(delta):
 	# Check if the player is holding shift to run
 	# Speeds are subject to change
-	if Input.is_action_pressed("player_run"):
+	if Input.is_action_pressed("player_run") and is_crouching == false:
 		speed = 12.0
 	elif Input.is_action_just_pressed("ui_crouch"):
 		print("Crouch")
