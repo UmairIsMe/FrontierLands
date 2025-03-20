@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var speed: float = 5.0
+@export var speed: float = 50.0
 @export var bullet_scene = "res://Scenes/bullet.tscn"
 
 #func _ready(delta):

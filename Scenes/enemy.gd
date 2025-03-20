@@ -4,14 +4,14 @@ extends CharacterBody3D
 @onready var enemy = $enemy
 @onready var pistol = $Pistol  # Reference the gun node (pistol) in the enemy scene
 @onready var player = null #get_node("/root/Player")  
-var SPEED = 0
+var SPEED = 5
 const JUMP_VELOCITY = 4.5
 var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 @export var shooting_offset: Vector3 = Vector3(0, 1, 3)  # Adjust where bullets should spawn
 var bullet_instance = 0
 var shoot_timer: Timer
 var bullet_spawn
-var health = 1
+var health = 100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -43,7 +43,7 @@ func _physics_process(_delta):
 		# Attempt to find the player node if not already found
 	if Global.player == null:
 		player = get_tree().root.get_node("root/World/1")
-	print(Global.player)
+#	print(Global.player)
 	aim_gun_at_player()
 	
 
@@ -53,13 +53,13 @@ func aim_gun_at_player():
 		# Calculate the direction from the gun to the player
 		var pistol_position = pistol.global_transform.origin
 		var player_position = Global.player.global_transform.origin
-		print("Player position: ", player_position)  # Debug print
+	#	print("Player position: ", player_position)  # Debug print
 		var aim_direction = (player_position - pistol_position).normalized()
-		print("Aim direction: ", aim_direction)  # Debug print
+	#	print("Aim direction: ", aim_direction)  # Debug print
 		# Make the gun rotate to face the player
 		pistol.look_at(pistol_position + aim_direction, Vector3.UP)
-	else:
-		print("Player node not found")  # Debug print
+#	else:
+#		print("Player node not found")  # Debug print
 
 func shoot_bullet():
 	# Create the bullet instance
