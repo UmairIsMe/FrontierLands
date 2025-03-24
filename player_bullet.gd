@@ -1,10 +1,11 @@
 extends Area3D
-
-var speed: float = 50.0
+signal enemy_hit
+var speed: float = 150.0
 var damage: int = 20
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
+		connect("body_entered", Callable(self, "_on_body_entered"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +18,7 @@ func _on_body_entered(body):
 	if body.has_method("take_damage"):
 #		print("ow")
 		body.take_damage(damage)
+		enemy_hit.emit()
 		destroy()
 
 func destroy():

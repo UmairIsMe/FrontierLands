@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_on872"]
 [ext_resource type="AudioStream" uid="uid://ufe04k1hbj1h" path="res://audio/pew.ogg" id="4_5cqtn"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkvtw"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q7x2r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_an04p"]
 
@@ -57,7 +57,7 @@ orientation = 2
 script = ExtResource("1_phvpf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_bkvtw")
+shape = SubResource("CapsuleShape3D_q7x2r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_an04p")
