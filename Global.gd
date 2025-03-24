@@ -13,3 +13,5 @@ func _ready():
 	high_resolution_display_mode(true)
 
 var player = null
+
+var hud = null 

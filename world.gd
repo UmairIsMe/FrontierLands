@@ -52,3 +52,6 @@ func update_health_bar(health_value):
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _ready():
+	Global.hud = $HUD

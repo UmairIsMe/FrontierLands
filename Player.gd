@@ -11,7 +11,8 @@ signal health_changed(health_value)
 @export var standing_height : float = 2.5  # Standing height
 @onready var ammo_counter = null
 var is_ready = false
-
+@onready var hitmarker = $CanvasLayer/HUD/Hitmarker  # Adjust path to match your scene
+@onready var reticle = null
 #Crouch and standing heights can be changed at any time
 #@onready var health_bar: ProgressBar = $HealthBar
 
@@ -68,7 +69,30 @@ func _ready():
 	bulletSpawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
-	
+	# Find HUD in the world
+	Global.player = self
+	print("Player _ready() called!")
+
+	await get_tree().process_frame  # Wait a frame
+	var hud = null
+
+	while hud == null:
+		hud = get_tree().get_first_node_in_group("hud")
+		if hud:
+			print("HUD found:", hud)
+			hitmarker = hud.get_node_or_null("Hitmarker")
+			if hitmarker:
+				print("Hitmarker found:", hitmarker)
+			else:
+				print("ERROR: Hitmarker not found!")
+		else:
+			print("Waiting for HUD to appear...")
+			await get_tree().process_frame  # Wait another frame and try again
+
+
+
+
+
 	camera.position.y = standing_height / 1.3
 
 	ammo_counter = get_node("Camera3D/AmmoCounter")
@@ -84,7 +108,7 @@ func _ready():
 
 func update_ammo_counter():
 	if ammo_counter:
-		ammo_counter.text = "Ammo: " + str(ammo)
+		ammo_counter.text = str(ammo) + "/16"
 	else:
 		print("no label cuh")
 	
@@ -198,7 +222,10 @@ func shoot():
 		get_tree().root.add_child(bullet)
 		bullet.global_transform = bulletSpawn.global_transform
 		bullet.scale = Vector3(0.1, 0.1, 0.1)
-	
+
+		# Connect bullet collision to hitmarker function
+		bullet.connect("enemy_hit", Callable(self, "show_hitmarker"))
+
 		# Decrease ammo by 1
 		ammo -= 1
 
@@ -218,8 +245,13 @@ func reset_ammo_with_delay() -> void:
 
 func start_reload():
 	is_reloading = true
-	#anim_player.play("reload")
-	await get_tree().create_timer(1.5).timeout
+	if ammo_counter:
+		ammo_counter.text = "RELOADING"  # Display reloading text
+	# Play reload animation if applicable
+	# anim_player.play("reload")
+
+	await get_tree().create_timer(reload_time).timeout  # Wait for reload time
+
 	ammo = 16  # Reset ammo after reload
 	update_ammo_counter()  # Update the counter after reload
 	is_reloading = false
@@ -230,3 +262,20 @@ func respawn():
 	current_health = max_health  # Reset health
 	global_position = Vector3.ZERO  # Move player back to spawn
 	health_changed.emit(current_health)  # Update health bar
+
+func show_hitmarker():
+	if hitmarker:
+		if reticle:
+			reticle.visible = false  # Hide reticle when hitmarker appears
+
+		print("Showing hitmarker!")
+		hitmarker.visible = true
+		await get_tree().create_timer(0.2).timeout  # Keep hitmarker for 0.2s
+		hitmarker.visible = false
+		
+		if reticle:
+			reticle.visible = true  # Show reticle again after hitmarker disappears
+			
+		print("Hiding hitmarker!")
+	else:
+		print("ERROR: Hitmarker is NULL!")

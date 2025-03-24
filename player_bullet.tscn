@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cakea5axg6wb3"]
+[gd_scene load_steps=4 format=3 uid="uid://cakea5axg6wb3"]
 
 [ext_resource type="Script" path="res://player_bullet.gd" id="1_rafk8"]
+[ext_resource type="Material" uid="uid://dde5cih6qf6j6" path="res://player_bullet.tres" id="2_w4iff"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ws2fa"]
+radius = 0.443727
+height = 1.0883
 
 [node name="playerBullet" type="Area3D"]
 transform = Transform3D(4.37107e-08, -0.999985, -0.00556765, -2.43368e-10, 0.00556765, -0.999985, 1, 4.37114e-08, 1.93782e-15, 0, 0, 0)
@@ -12,12 +15,11 @@ script = ExtResource("1_rafk8")
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00321, 0)
-cone = true
+transform = Transform3D(0.991307, -1.48802e-16, 3.55271e-15, 8.68653e-18, 2.07605, 4.65661e-10, 0, 9.31323e-10, 0.997347, 0, 0, 0)
+material = ExtResource("2_w4iff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.4452, 1.42109e-14, 3.06791e-16, -7.10543e-15, 1.42194, -3.72529e-09, 1.34947e-17, 1.86265e-09, 5.62444, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ws2fa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -764,6 +764,11 @@ step = 1.0
 value = 100.0
 script = SubResource("GDScript_vcwj7")
 
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Floor" type="Node" parent="."]
 
 [node name="Mid" type="MeshInstance3D" parent="Floor"]
