@@ -12,7 +12,7 @@ signal health_changed(health_value)
 @onready var ammo_counter = null
 var is_ready = false
 @onready var hitmarker = $CanvasLayer/HUD/Hitmarker  # Adjust path to match your scene
-@onready var reticle = null
+@onready var reticle = $CanvasLayer/HUD/Reticle
 #Crouch and standing heights can be changed at any time
 #@onready var health_bar: ProgressBar = $HealthBar
 
@@ -81,13 +81,13 @@ func _ready():
 		if hud:
 			print("HUD found:", hud)
 			hitmarker = hud.get_node_or_null("Hitmarker")
-			if hitmarker:
-				print("Hitmarker found:", hitmarker)
-			else:
-				print("ERROR: Hitmarker not found!")
-		else:
-			print("Waiting for HUD to appear...")
-			await get_tree().process_frame  # Wait another frame and try again
+			#if hitmarker:
+				#print("Hitmarker found:", hitmarker)
+			#else:
+				#print("ERROR: Hitmarker not found!")
+		#else:
+			#print("Waiting for HUD to appear...")
+			#await get_tree().process_frame  # Wait another frame and try again
 
 
 
@@ -267,8 +267,8 @@ func show_hitmarker():
 	if hitmarker:
 		if reticle:
 			reticle.visible = false  # Hide reticle when hitmarker appears
-
-		print("Showing hitmarker!")
+#
+		#print("Showing hitmarker!")
 		hitmarker.visible = true
 		await get_tree().create_timer(0.2).timeout  # Keep hitmarker for 0.2s
 		hitmarker.visible = false
@@ -276,6 +276,6 @@ func show_hitmarker():
 		if reticle:
 			reticle.visible = true  # Show reticle again after hitmarker disappears
 			
-		print("Hiding hitmarker!")
-	else:
-		print("ERROR: Hitmarker is NULL!")
+		#print("Hiding hitmarker!")
+	#else:
+		#print("ERROR: Hitmarker is NULL!")
