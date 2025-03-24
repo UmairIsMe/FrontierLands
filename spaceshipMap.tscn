@@ -1,5 +1,6 @@
-[gd_scene load_steps=168 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=195 format=3 uid="uid://txw564016hgy"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_8bqxf"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
 [ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
 [ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
@@ -22,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://boq4ryqk13gjh" path="res://textures/metalplate/armor-plating1_height.png" id="16_j20rq"]
 [ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels/worn-modern-panels_normal-ogl.png" id="16_khsst"]
 [ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels/worn-modern-panels_height.png" id="17_4edwr"]
+[ext_resource type="FontFile" uid="uid://cikbh0cijo3yi" path="res://Fonts/cyberformhalf.ttf" id="24_u31hb"]
+[ext_resource type="FontFile" uid="uid://c76krp3u68v8j" path="res://Fonts/Cyberfall Italic.otf" id="25_qp7nw"]
+[ext_resource type="Texture2D" uid="uid://ntptst52fu81" path="res://icons/7ddc6769-3759-4691-97e3-3555e34b3367.webp" id="26_73ft6"]
+[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="27_rarf2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xvs8y"]
 panorama = ExtResource("2_ovteb")
@@ -39,6 +44,41 @@ ambient_light_sky_contribution = 0.92
 ambient_light_energy = 5.55
 adjustment_enabled = true
 adjustment_saturation = 1.25
+
+[sub_resource type="FontVariation" id="FontVariation_f3ral"]
+base_font = ExtResource("24_u31hb")
+
+[sub_resource type="FontVariation" id="FontVariation_xjldb"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="FontVariation" id="FontVariation_7op0m"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="FontVariation" id="FontVariation_yqtyc"]
+base_font = ExtResource("25_qp7nw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyerq"]
+bg_color = Color(1, 0.117647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1dt8"]
+bg_color = Color(0.00392157, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_vcwj7"]
+script/source = "extends ProgressBar
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func update_health(value):
+	self.value = value
+	print(\"Health bar updated to:\", value)  # Debug message
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
 albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
@@ -177,11 +217,20 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_gy3b2")
 size = Vector2(48.5, 36.5)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mi6pb"]
+data = PackedVector3Array(24.25, 0, 18.25, -24.25, 0, 18.25, 24.25, 0, -18.25, -24.25, 0, 18.25, -24.25, 0, -18.25, 24.25, 0, -18.25)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ko3tm"]
 size = Vector3(22.5, 8, 3.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hxeul"]
 data = PackedVector3Array(-11.25, 4, 1.75, 11.25, 4, 1.75, -11.25, -4, 1.75, 11.25, 4, 1.75, 11.25, -4, 1.75, -11.25, -4, 1.75, 11.25, 4, -1.75, -11.25, 4, -1.75, 11.25, -4, -1.75, -11.25, 4, -1.75, -11.25, -4, -1.75, 11.25, -4, -1.75, 11.25, 4, 1.75, 11.25, 4, -1.75, 11.25, -4, 1.75, 11.25, 4, -1.75, 11.25, -4, -1.75, 11.25, -4, 1.75, -11.25, 4, -1.75, -11.25, 4, 1.75, -11.25, -4, -1.75, -11.25, 4, 1.75, -11.25, -4, 1.75, -11.25, -4, -1.75, 11.25, 4, 1.75, -11.25, 4, 1.75, 11.25, 4, -1.75, -11.25, 4, 1.75, -11.25, 4, -1.75, 11.25, 4, -1.75, -11.25, -4, 1.75, 11.25, -4, 1.75, -11.25, -4, -1.75, 11.25, -4, 1.75, 11.25, -4, -1.75, -11.25, -4, -1.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1pbee"]
+size = Vector3(9, 4, 2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4oibq"]
+data = PackedVector3Array(-4.5, 2, 1.25, 4.5, 2, 1.25, -4.5, -2, 1.25, 4.5, 2, 1.25, 4.5, -2, 1.25, -4.5, -2, 1.25, 4.5, 2, -1.25, -4.5, 2, -1.25, 4.5, -2, -1.25, -4.5, 2, -1.25, -4.5, -2, -1.25, 4.5, -2, -1.25, 4.5, 2, 1.25, 4.5, 2, -1.25, 4.5, -2, 1.25, 4.5, 2, -1.25, 4.5, -2, -1.25, 4.5, -2, 1.25, -4.5, 2, -1.25, -4.5, 2, 1.25, -4.5, -2, -1.25, -4.5, 2, 1.25, -4.5, -2, 1.25, -4.5, -2, -1.25, 4.5, 2, 1.25, -4.5, 2, 1.25, 4.5, 2, -1.25, -4.5, 2, 1.25, -4.5, 2, -1.25, 4.5, 2, -1.25, -4.5, -2, 1.25, 4.5, -2, 1.25, -4.5, -2, -1.25, 4.5, -2, 1.25, 4.5, -2, -1.25, -4.5, -2, -1.25)
 
 [sub_resource type="PrismMesh" id="PrismMesh_y1l5v"]
 left_to_right = 1.0
@@ -190,22 +239,40 @@ size = Vector3(5, 11, 8)
 [sub_resource type="BoxMesh" id="BoxMesh_8lh2v"]
 size = Vector3(25, 11, 8)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_okt5p"]
+data = PackedVector3Array(-12.5, 5.5, 4, 12.5, 5.5, 4, -12.5, -5.5, 4, 12.5, 5.5, 4, 12.5, -5.5, 4, -12.5, -5.5, 4, 12.5, 5.5, -4, -12.5, 5.5, -4, 12.5, -5.5, -4, -12.5, 5.5, -4, -12.5, -5.5, -4, 12.5, -5.5, -4, 12.5, 5.5, 4, 12.5, 5.5, -4, 12.5, -5.5, 4, 12.5, 5.5, -4, 12.5, -5.5, -4, 12.5, -5.5, 4, -12.5, 5.5, -4, -12.5, 5.5, 4, -12.5, -5.5, -4, -12.5, 5.5, 4, -12.5, -5.5, 4, -12.5, -5.5, -4, 12.5, 5.5, 4, -12.5, 5.5, 4, 12.5, 5.5, -4, -12.5, 5.5, 4, -12.5, 5.5, -4, 12.5, 5.5, -4, -12.5, -5.5, 4, 12.5, -5.5, 4, -12.5, -5.5, -4, 12.5, -5.5, 4, 12.5, -5.5, -4, -12.5, -5.5, -4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_tnvi1"]
 size = Vector3(11, 5.5, 8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_86ysj"]
+data = PackedVector3Array(-5.5, 2.75, 4, 5.5, 2.75, 4, -5.5, -2.75, 4, 5.5, 2.75, 4, 5.5, -2.75, 4, -5.5, -2.75, 4, 5.5, 2.75, -4, -5.5, 2.75, -4, 5.5, -2.75, -4, -5.5, 2.75, -4, -5.5, -2.75, -4, 5.5, -2.75, -4, 5.5, 2.75, 4, 5.5, 2.75, -4, 5.5, -2.75, 4, 5.5, 2.75, -4, 5.5, -2.75, -4, 5.5, -2.75, 4, -5.5, 2.75, -4, -5.5, 2.75, 4, -5.5, -2.75, -4, -5.5, 2.75, 4, -5.5, -2.75, 4, -5.5, -2.75, -4, 5.5, 2.75, 4, -5.5, 2.75, 4, 5.5, 2.75, -4, -5.5, 2.75, 4, -5.5, 2.75, -4, 5.5, 2.75, -4, -5.5, -2.75, 4, 5.5, -2.75, 4, -5.5, -2.75, -4, 5.5, -2.75, 4, 5.5, -2.75, -4, -5.5, -2.75, -4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1xyqr"]
 size = Vector3(23, 5, 8)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ogj2p"]
+data = PackedVector3Array(-11.5, 2.5, 4, 11.5, 2.5, 4, -11.5, -2.5, 4, 11.5, 2.5, 4, 11.5, -2.5, 4, -11.5, -2.5, 4, 11.5, 2.5, -4, -11.5, 2.5, -4, 11.5, -2.5, -4, -11.5, 2.5, -4, -11.5, -2.5, -4, 11.5, -2.5, -4, 11.5, 2.5, 4, 11.5, 2.5, -4, 11.5, -2.5, 4, 11.5, 2.5, -4, 11.5, -2.5, -4, 11.5, -2.5, 4, -11.5, 2.5, -4, -11.5, 2.5, 4, -11.5, -2.5, -4, -11.5, 2.5, 4, -11.5, -2.5, 4, -11.5, -2.5, -4, 11.5, 2.5, 4, -11.5, 2.5, 4, 11.5, 2.5, -4, -11.5, 2.5, 4, -11.5, 2.5, -4, 11.5, 2.5, -4, -11.5, -2.5, 4, 11.5, -2.5, 4, -11.5, -2.5, -4, 11.5, -2.5, 4, 11.5, -2.5, -4, -11.5, -2.5, -4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_8fsal"]
 size = Vector3(2, 1, 8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c3vi0"]
+data = PackedVector3Array(-1, 0.5, 4, 1, 0.5, 4, -1, -0.5, 4, 1, 0.5, 4, 1, -0.5, 4, -1, -0.5, 4, 1, 0.5, -4, -1, 0.5, -4, 1, -0.5, -4, -1, 0.5, -4, -1, -0.5, -4, 1, -0.5, -4, 1, 0.5, 4, 1, 0.5, -4, 1, -0.5, 4, 1, 0.5, -4, 1, -0.5, -4, 1, -0.5, 4, -1, 0.5, -4, -1, 0.5, 4, -1, -0.5, -4, -1, 0.5, 4, -1, -0.5, 4, -1, -0.5, -4, 1, 0.5, 4, -1, 0.5, 4, 1, 0.5, -4, -1, 0.5, 4, -1, 0.5, -4, 1, 0.5, -4, -1, -0.5, 4, 1, -0.5, 4, -1, -0.5, -4, 1, -0.5, 4, 1, -0.5, -4, -1, -0.5, -4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bvtg5"]
 size = Vector3(4, 0.5, 8)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_n0qh7"]
+data = PackedVector3Array(-2, 0.25, 4, 2, 0.25, 4, -2, -0.25, 4, 2, 0.25, 4, 2, -0.25, 4, -2, -0.25, 4, 2, 0.25, -4, -2, 0.25, -4, 2, -0.25, -4, -2, 0.25, -4, -2, -0.25, -4, 2, -0.25, -4, 2, 0.25, 4, 2, 0.25, -4, 2, -0.25, 4, 2, 0.25, -4, 2, -0.25, -4, 2, -0.25, 4, -2, 0.25, -4, -2, 0.25, 4, -2, -0.25, -4, -2, 0.25, 4, -2, -0.25, 4, -2, -0.25, -4, 2, 0.25, 4, -2, 0.25, 4, 2, 0.25, -4, -2, 0.25, 4, -2, 0.25, -4, 2, 0.25, -4, -2, -0.25, 4, 2, -0.25, 4, -2, -0.25, -4, 2, -0.25, 4, 2, -0.25, -4, -2, -0.25, -4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_4u1sl"]
 size = Vector3(4, 0.5, 8)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_abnrr"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5mw0f"]
+data = PackedVector3Array(-2, 0.25, 4, 2, 0.25, 4, -2, -0.25, 4, 2, 0.25, 4, 2, -0.25, 4, -2, -0.25, 4, 2, 0.25, -4, -2, 0.25, -4, 2, -0.25, -4, -2, 0.25, -4, -2, -0.25, -4, 2, -0.25, -4, 2, 0.25, 4, 2, 0.25, -4, 2, -0.25, 4, 2, 0.25, -4, 2, -0.25, -4, 2, -0.25, 4, -2, 0.25, -4, -2, 0.25, 4, -2, -0.25, -4, -2, 0.25, 4, -2, -0.25, 4, -2, -0.25, -4, 2, 0.25, 4, -2, 0.25, 4, 2, 0.25, -4, -2, 0.25, 4, -2, 0.25, -4, 2, 0.25, -4, -2, -0.25, 4, 2, -0.25, 4, -2, -0.25, -4, 2, -0.25, 4, 2, -0.25, -4, -2, -0.25, -4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y1uoi"]
 data = PackedVector3Array(2.5, 5.5, 4, 2.5, -5.5, 4, -2.5, -5.5, 4, 2.5, 5.5, -4, -2.5, -5.5, -4, 2.5, -5.5, -4, 2.5, 5.5, 4, 2.5, 5.5, -4, 2.5, -5.5, 4, 2.5, 5.5, -4, 2.5, -5.5, -4, 2.5, -5.5, 4, 2.5, 5.5, -4, 2.5, 5.5, 4, -2.5, -5.5, -4, 2.5, 5.5, 4, -2.5, -5.5, 4, -2.5, -5.5, -4, -2.5, -5.5, 4, 2.5, -5.5, 4, -2.5, -5.5, -4, 2.5, -5.5, 4, 2.5, -5.5, -4, -2.5, -5.5, -4)
 
 [sub_resource type="PrismMesh" id="PrismMesh_o2eru"]
@@ -228,11 +295,17 @@ size = Vector3(82, 9, 8)
 [sub_resource type="BoxMesh" id="BoxMesh_0hpjm"]
 size = Vector3(1, 8, 5)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lvq0v"]
+data = PackedVector3Array(-0.5, 4, 2.5, 0.5, 4, 2.5, -0.5, -4, 2.5, 0.5, 4, 2.5, 0.5, -4, 2.5, -0.5, -4, 2.5, 0.5, 4, -2.5, -0.5, 4, -2.5, 0.5, -4, -2.5, -0.5, 4, -2.5, -0.5, -4, -2.5, 0.5, -4, -2.5, 0.5, 4, 2.5, 0.5, 4, -2.5, 0.5, -4, 2.5, 0.5, 4, -2.5, 0.5, -4, -2.5, 0.5, -4, 2.5, -0.5, 4, -2.5, -0.5, 4, 2.5, -0.5, -4, -2.5, -0.5, 4, 2.5, -0.5, -4, 2.5, -0.5, -4, -2.5, 0.5, 4, 2.5, -0.5, 4, 2.5, 0.5, 4, -2.5, -0.5, 4, 2.5, -0.5, 4, -2.5, 0.5, 4, -2.5, -0.5, -4, 2.5, 0.5, -4, 2.5, -0.5, -4, -2.5, 0.5, -4, 2.5, 0.5, -4, -2.5, -0.5, -4, -2.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_4gnka"]
 size = Vector3(2, 8, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ok2u"]
-data = PackedVector3Array(-41, 4, 4, 41, 4, 4, -41, -4, 4, 41, 4, 4, 41, -4, 4, -41, -4, 4, 41, 4, -4, -41, 4, -4, 41, -4, -4, -41, 4, -4, -41, -4, -4, 41, -4, -4, 41, 4, 4, 41, 4, -4, 41, -4, 4, 41, 4, -4, 41, -4, -4, 41, -4, 4, -41, 4, -4, -41, 4, 4, -41, -4, -4, -41, 4, 4, -41, -4, 4, -41, -4, -4, 41, 4, 4, -41, 4, 4, 41, 4, -4, -41, 4, 4, -41, 4, -4, 41, 4, -4, -41, -4, 4, 41, -4, 4, -41, -4, -4, 41, -4, 4, 41, -4, -4, -41, -4, -4)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m1br3"]
+data = PackedVector3Array(-1, 4, 0.5, 1, 4, 0.5, -1, -4, 0.5, 1, 4, 0.5, 1, -4, 0.5, -1, -4, 0.5, 1, 4, -0.5, -1, 4, -0.5, 1, -4, -0.5, -1, 4, -0.5, -1, -4, -0.5, 1, -4, -0.5, 1, 4, 0.5, 1, 4, -0.5, 1, -4, 0.5, 1, 4, -0.5, 1, -4, -0.5, 1, -4, 0.5, -1, 4, -0.5, -1, 4, 0.5, -1, -4, -0.5, -1, 4, 0.5, -1, -4, 0.5, -1, -4, -0.5, 1, 4, 0.5, -1, 4, 0.5, 1, 4, -0.5, -1, 4, 0.5, -1, 4, -0.5, 1, 4, -0.5, -1, -4, 0.5, 1, -4, 0.5, -1, -4, -0.5, 1, -4, 0.5, 1, -4, -0.5, -1, -4, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7kncf"]
+data = PackedVector3Array(-41, 4.5, 4, 41, 4.5, 4, -41, -4.5, 4, 41, 4.5, 4, 41, -4.5, 4, -41, -4.5, 4, 41, 4.5, -4, -41, 4.5, -4, 41, -4.5, -4, -41, 4.5, -4, -41, -4.5, -4, 41, -4.5, -4, 41, 4.5, 4, 41, 4.5, -4, 41, -4.5, 4, 41, 4.5, -4, 41, -4.5, -4, 41, -4.5, 4, -41, 4.5, -4, -41, 4.5, 4, -41, -4.5, -4, -41, 4.5, 4, -41, -4.5, 4, -41, -4.5, -4, 41, 4.5, 4, -41, 4.5, 4, 41, 4.5, -4, -41, 4.5, 4, -41, 4.5, -4, 41, 4.5, -4, -41, -4.5, 4, 41, -4.5, 4, -41, -4.5, -4, 41, -4.5, 4, 41, -4.5, -4, -41, -4.5, -4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1e8rp"]
 size = Vector3(5, 9, 13)
@@ -258,8 +331,11 @@ size = Vector3(17, 9, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_n3d1q"]
 size = Vector3(5, 9, 13)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_foj61"]
-data = PackedVector3Array(-8.5, 4, 10, 8.5, 4, 10, -8.5, -4, 10, 8.5, 4, 10, 8.5, -4, 10, -8.5, -4, 10, 8.5, 4, -10, -8.5, 4, -10, 8.5, -4, -10, -8.5, 4, -10, -8.5, -4, -10, 8.5, -4, -10, 8.5, 4, 10, 8.5, 4, -10, 8.5, -4, 10, 8.5, 4, -10, 8.5, -4, -10, 8.5, -4, 10, -8.5, 4, -10, -8.5, 4, 10, -8.5, -4, -10, -8.5, 4, 10, -8.5, -4, 10, -8.5, -4, -10, 8.5, 4, 10, -8.5, 4, 10, 8.5, 4, -10, -8.5, 4, 10, -8.5, 4, -10, 8.5, 4, -10, -8.5, -4, 10, 8.5, -4, 10, -8.5, -4, -10, 8.5, -4, 10, 8.5, -4, -10, -8.5, -4, -10)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_63sve"]
+data = PackedVector3Array(-2.5, 4.5, 6.5, 2.5, 4.5, 6.5, -2.5, -4.5, 6.5, 2.5, 4.5, 6.5, 2.5, -4.5, 6.5, -2.5, -4.5, 6.5, 2.5, 4.5, -6.5, -2.5, 4.5, -6.5, 2.5, -4.5, -6.5, -2.5, 4.5, -6.5, -2.5, -4.5, -6.5, 2.5, -4.5, -6.5, 2.5, 4.5, 6.5, 2.5, 4.5, -6.5, 2.5, -4.5, 6.5, 2.5, 4.5, -6.5, 2.5, -4.5, -6.5, 2.5, -4.5, 6.5, -2.5, 4.5, -6.5, -2.5, 4.5, 6.5, -2.5, -4.5, -6.5, -2.5, 4.5, 6.5, -2.5, -4.5, 6.5, -2.5, -4.5, -6.5, 2.5, 4.5, 6.5, -2.5, 4.5, 6.5, 2.5, 4.5, -6.5, -2.5, 4.5, 6.5, -2.5, 4.5, -6.5, 2.5, 4.5, -6.5, -2.5, -4.5, 6.5, 2.5, -4.5, 6.5, -2.5, -4.5, -6.5, 2.5, -4.5, 6.5, 2.5, -4.5, -6.5, -2.5, -4.5, -6.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sxqyh"]
+data = PackedVector3Array(-8.5, 4.5, 10, 8.5, 4.5, 10, -8.5, -4.5, 10, 8.5, 4.5, 10, 8.5, -4.5, 10, -8.5, -4.5, 10, 8.5, 4.5, -10, -8.5, 4.5, -10, 8.5, -4.5, -10, -8.5, 4.5, -10, -8.5, -4.5, -10, 8.5, -4.5, -10, 8.5, 4.5, 10, 8.5, 4.5, -10, 8.5, -4.5, 10, 8.5, 4.5, -10, 8.5, -4.5, -10, 8.5, -4.5, 10, -8.5, 4.5, -10, -8.5, 4.5, 10, -8.5, -4.5, -10, -8.5, 4.5, 10, -8.5, -4.5, 10, -8.5, -4.5, -10, 8.5, 4.5, 10, -8.5, 4.5, 10, 8.5, 4.5, -10, -8.5, 4.5, 10, -8.5, 4.5, -10, 8.5, 4.5, -10, -8.5, -4.5, 10, 8.5, -4.5, 10, -8.5, -4.5, -10, 8.5, -4.5, 10, 8.5, -4.5, -10, -8.5, -4.5, -10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2p1xv"]
 size = Vector3(12, 8, 1)
@@ -559,11 +635,35 @@ size = Vector2(25, 2)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m0683"]
 data = PackedVector3Array(12.5, 0, 1, -12.5, 0, 1, 12.5, 0, -1, -12.5, 0, 1, -12.5, 0, -1, 12.5, 0, -1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_lkyfv"]
+[sub_resource type="BoxMesh" id="BoxMesh_shosh"]
 material = SubResource("StandardMaterial3D_dfic2")
 size = Vector3(7.75, 0.1, 0.1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_qtil7"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(4, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cy8fn"]
+size = Vector3(1.5, 1.5, 5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_be4ia"]
+data = PackedVector3Array(-0.75, 0.75, 2.5, 0.75, 0.75, 2.5, -0.75, -0.75, 2.5, 0.75, 0.75, 2.5, 0.75, -0.75, 2.5, -0.75, -0.75, 2.5, 0.75, 0.75, -2.5, -0.75, 0.75, -2.5, 0.75, -0.75, -2.5, -0.75, 0.75, -2.5, -0.75, -0.75, -2.5, 0.75, -0.75, -2.5, 0.75, 0.75, 2.5, 0.75, 0.75, -2.5, 0.75, -0.75, 2.5, 0.75, 0.75, -2.5, 0.75, -0.75, -2.5, 0.75, -0.75, 2.5, -0.75, 0.75, -2.5, -0.75, 0.75, 2.5, -0.75, -0.75, -2.5, -0.75, 0.75, 2.5, -0.75, -0.75, 2.5, -0.75, -0.75, -2.5, 0.75, 0.75, 2.5, -0.75, 0.75, 2.5, 0.75, 0.75, -2.5, -0.75, 0.75, 2.5, -0.75, 0.75, -2.5, 0.75, 0.75, -2.5, -0.75, -0.75, 2.5, 0.75, -0.75, 2.5, -0.75, -0.75, -2.5, 0.75, -0.75, 2.5, 0.75, -0.75, -2.5, -0.75, -0.75, -2.5)
+
 [node name="SpaceshipMap" type="Node3D"]
+script = ExtResource("1_8bqxf")
+
+[node name="Enemy93" parent="." instance=ExtResource("1_yd3bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172924, 3, -6.58826)
+
+[node name="SpawnPoint" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("../spawn_point")
+
+[node name="spawn_point" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 60.4536, 0)
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r27kf")
@@ -572,8 +672,97 @@ environment = SubResource("Environment_r27kf")
 _spawnable_scenes = PackedStringArray("res://player.tscn")
 spawn_path = NodePath("..")
 
-[node name="Enemy93" parent="." instance=ExtResource("1_yd3bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172924, 3, -6.58826)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 423.0
+offset_top = 227.0
+offset_right = -423.0
+offset_bottom = -227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_f3ral")
+theme_override_font_sizes/font_size = 30
+text = "Terminal Breach"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SinglePlayer" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_xjldb")
+text = "Single Player"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_7op0m")
+text = "Options"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_yqtyc")
+text = "Quit"
+
+[node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+show_behind_parent = true
+position = Vector2(131, 206)
+scale = Vector2(1.13839, 1.03418)
+texture = ExtResource("26_73ft6")
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.03, 0.03)
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("27_rarf2")
+stretch_mode = 5
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 70.0
+offset_right = -330.0
+offset_bottom = -536.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qyerq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u1dt8")
+step = 1.0
+value = 100.0
+script = SubResource("GDScript_vcwj7")
 
 [node name="Floor" type="Node" parent="."]
 
@@ -712,6 +901,11 @@ shape = SubResource("ConcavePolygonShape3D_w3xga")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.75, -0.5, 0.5)
 mesh = SubResource("PlaneMesh_bjqk2")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/BSite"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/BSite/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mi6pb")
+
 [node name="Interior Walls" type="Node" parent="."]
 
 [node name="MidBranchADivider" type="MeshInstance3D" parent="Interior Walls"]
@@ -724,6 +918,16 @@ mesh = SubResource("BoxMesh_ko3tm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/MidBranchADivider/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_hxeul")
 
+[node name="MidDoorBlock" type="MeshInstance3D" parent="Interior Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.25, 2, -8.75)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_1pbee")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/MidDoorBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/MidDoorBlock/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4oibq")
+
 [node name="LowerLeftQuarterMid" type="MeshInstance3D" parent="Interior Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -44.8, 4, 8)
 cast_shadow = 0
@@ -734,35 +938,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_8lh2v")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_okt5p")
+
 [node name="BlockSection2" type="MeshInstance3D" parent="Interior Walls/LowerLeftQuarterMid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 8, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_tnvi1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_86ysj")
 
 [node name="BlockSection3" type="MeshInstance3D" parent="Interior Walls/LowerLeftQuarterMid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -7.5, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1xyqr")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/BlockSection3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ogj2p")
+
 [node name="MidOverlap" type="MeshInstance3D" parent="Interior Walls/LowerLeftQuarterMid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, -9.5, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_8fsal")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/MidOverlap"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/MidOverlap/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c3vi0")
+
 [node name="MidMainDoorLeft" type="MeshInstance3D" parent="Interior Walls/LowerLeftQuarterMid"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 9.85, -11.8, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 19.85, -11.95, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_bvtg5")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/MidMainDoorLeft"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/MidMainDoorLeft/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_n0qh7")
+
 [node name="MidMainDoorRight" type="MeshInstance3D" parent="Interior Walls/LowerLeftQuarterMid"]
-transform = Transform3D(0.642788, -0.766044, 0, 0.766044, 0.642788, 0, 0, 0, 1, 10.75, -16.8, 0)
+transform = Transform3D(0.642788, -0.766044, 0, 0.766044, 0.642788, 0, 0, 0, 1, 22, -16.8, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_4u1sl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid/MidMainDoorRight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/MidMainDoorRight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5mw0f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/LowerLeftQuarterMid"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/LowerLeftQuarterMid/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_abnrr")
+shape = SubResource("ConcavePolygonShape3D_y1uoi")
 
 [node name="DefenderBranchAWall1" type="MeshInstance3D" parent="Interior Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -42, 4, -21.5)
@@ -794,15 +1028,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6.5)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_0hpjm")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/BackMidWall/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/BackMidWall/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_lvq0v")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Interior Walls/BackMidWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 8.5)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_4gnka")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/BackMidWall/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/BackMidWall/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m1br3")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/BackMidWall"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/BackMidWall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_0ok2u")
+shape = SubResource("ConcavePolygonShape3D_7kncf")
 
 [node name="LowerRightQuarterMid" type="MeshInstance3D" parent="Interior Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 12.25)
@@ -844,10 +1088,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 15.75)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_n3d1q")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/AttackerBranchBMain/BlockSection"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/AttackerBranchBMain/BlockSection/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_63sve")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior Walls/AttackerBranchBMain"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior Walls/AttackerBranchBMain/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_foj61")
+shape = SubResource("ConcavePolygonShape3D_sxqyh")
 
 [node name="AttackerMidWallLeft" type="MeshInstance3D" parent="Interior Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 4, 18.25)
@@ -1257,25 +1506,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.75, 0, 18.7)
 mesh = SubResource("BoxMesh_3hnno")
 skeleton = NodePath("../..")
 
-[node name="Node" type="Node" parent="Extra Models"]
+[node name="MidBSmallRamp" type="Node" parent="Extra Models"]
 
-[node name="MidBSmallRamp" type="MeshInstance3D" parent="Extra Models/Node"]
+[node name="MidBSmallRamp" type="MeshInstance3D" parent="Extra Models/MidBSmallRamp"]
 transform = Transform3D(-4.37114e-08, 0.34202, 0.939692, 0, 0.939692, -0.34202, -1, -1.49502e-08, -4.10752e-08, 18.44, -0.34, -6.23162)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_vpyo1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/Node/MidBSmallRamp"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/MidBSmallRamp/MidBSmallRamp"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/Node/MidBSmallRamp/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/MidBSmallRamp/MidBSmallRamp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m0683")
 
-[node name="RampTextureCover" type="MeshInstance3D" parent="Extra Models/Node"]
+[node name="RampTextureCover" type="MeshInstance3D" parent="Extra Models/MidBSmallRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.55, 0, 1.875)
-mesh = SubResource("BoxMesh_lkyfv")
+mesh = SubResource("BoxMesh_shosh")
 skeleton = NodePath("../..")
 
-[node name="RampTextureCover2" type="MeshInstance3D" parent="Extra Models/Node"]
+[node name="RampTextureCover2" type="MeshInstance3D" parent="Extra Models/MidBSmallRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.83, -0.5, 1.875)
-mesh = SubResource("BoxMesh_lkyfv")
+mesh = SubResource("BoxMesh_shosh")
 skeleton = NodePath("../..")
+
+[node name="RampTextureCover3" type="MeshInstance3D" parent="Extra Models/MidBSmallRamp"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.83, -0.5, -15.5)
+mesh = SubResource("BoxMesh_qtil7")
+skeleton = NodePath("../..")
+
+[node name="RampTextureCover4" type="MeshInstance3D" parent="Extra Models/MidBSmallRamp"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.55, 0, -15.5)
+mesh = SubResource("BoxMesh_qtil7")
+skeleton = NodePath("../..")
+
+[node name="BMainBox" type="Node" parent="Extra Models"]
+
+[node name="BMainBox" type="MeshInstance3D" parent="Extra Models/BMainBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.25, 0.75, 21.25)
+mesh = SubResource("BoxMesh_cy8fn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Extra Models/BMainBox/BMainBox"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Extra Models/BMainBox/BMainBox/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_be4ia")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
