@@ -40,11 +40,12 @@ func _physics_process(_delta):
 	velocity = new_velocity
 	move_and_slide()
 	
-		# Attempt to find the player node if not already found
+# Attempt to find the player node if not already found
 	if Global.player == null:
-		player = get_tree().root.get_node("root/World/1")
+		Global.player = get_tree().root.get_node_or_null("root/World/1")
 #	print(Global.player)
-	aim_gun_at_player()
+	if Global.player:
+		aim_gun_at_player()
 	
 
 #This will make the enemy aim at the player
