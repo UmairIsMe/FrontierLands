@@ -7,7 +7,8 @@ func _ready():
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
 
-
+	await get_tree().create_timer(3.0).timeout
+	destroy()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	global_transform.origin -= transform.basis.z.normalized() * speed * delta
