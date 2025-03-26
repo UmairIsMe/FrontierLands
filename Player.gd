@@ -222,6 +222,7 @@ func shoot():
 		get_tree().root.add_child(bullet)
 		bullet.global_transform = bulletSpawn.global_transform
 		bullet.scale = Vector3(0.1, 0.1, 0.1)
+		
 
 		# Connect bullet collision to hitmarker function
 		bullet.connect("enemy_hit", Callable(self, "show_hitmarker"))
