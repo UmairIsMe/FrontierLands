@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=202 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="Script" path="res://spaceship_map.gd" id="1_ua7sc"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
@@ -23,6 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://boq4ryqk13gjh" path="res://textures/metalplate/armor-plating1_height.png" id="16_j20rq"]
 [ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels/worn-modern-panels_normal-ogl.png" id="16_khsst"]
 [ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels/worn-modern-panels_height.png" id="17_4edwr"]
+[ext_resource type="Texture2D" uid="uid://b2s60ke0o4t7c" path="res://textures/ventedmetal/vented-metal-panel1_albedo.png" id="21_328lf"]
+[ext_resource type="Texture2D" uid="uid://t5kdbim0ldaa" path="res://textures/ventedmetal/vented-metal-panel1_ao.png" id="22_2dmup"]
+[ext_resource type="Texture2D" uid="uid://cgoe20rfv5nq" path="res://textures/ventedmetal/vented-metal-panel1_height.png" id="23_sg8p8"]
+[ext_resource type="Texture2D" uid="uid://cppxtjfli8is2" path="res://textures/ventedmetal/vented-metal-panel1_metallic.png" id="24_hbx1o"]
+[ext_resource type="Texture2D" uid="uid://d3hxq3mkxs8my" path="res://textures/ventedmetal/vented-metal-panel1_normal-ogl.png" id="25_uda14"]
+[ext_resource type="Texture2D" uid="uid://cv004cae0hcrw" path="res://textures/ventedmetal/vented-metal-panel1_roughness.png" id="26_8ic2o"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="27_rarf2"]
 [ext_resource type="Texture2D" uid="uid://cl6kwp05e50tu" path="res://icons/Hitmarker.png" id="28_os5cx"]
 
@@ -172,11 +178,46 @@ size = Vector3(7.75, 0.1, 0.1)
 material = SubResource("StandardMaterial3D_dfic2")
 size = Vector3(4, 0.1, 0.1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_je8m7"]
+material = SubResource("StandardMaterial3D_h0vn1")
+size = Vector2(7, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i6q3r"]
+data = PackedVector3Array(3.5, 0, 1, -3.5, 0, 1, 3.5, 0, -1, -3.5, 0, 1, -3.5, 0, -1, 3.5, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mqvmi"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(7, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_837mc"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(7, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk1qx"]
+albedo_texture = ExtResource("21_328lf")
+metallic = 1.0
+metallic_texture = ExtResource("24_hbx1o")
+roughness_texture = ExtResource("26_8ic2o")
+normal_enabled = true
+normal_texture = ExtResource("25_uda14")
+ao_enabled = true
+ao_texture = ExtResource("22_2dmup")
+heightmap_enabled = true
+heightmap_scale = 0.0
+heightmap_texture = ExtResource("23_sg8p8")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_cy8fn"]
+material = SubResource("StandardMaterial3D_wk1qx")
 size = Vector3(1.5, 1.5, 5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_be4ia"]
 data = PackedVector3Array(-0.75, 0.75, 2.5, 0.75, 0.75, 2.5, -0.75, -0.75, 2.5, 0.75, 0.75, 2.5, 0.75, -0.75, 2.5, -0.75, -0.75, 2.5, 0.75, 0.75, -2.5, -0.75, 0.75, -2.5, 0.75, -0.75, -2.5, -0.75, 0.75, -2.5, -0.75, -0.75, -2.5, 0.75, -0.75, -2.5, 0.75, 0.75, 2.5, 0.75, 0.75, -2.5, 0.75, -0.75, 2.5, 0.75, 0.75, -2.5, 0.75, -0.75, -2.5, 0.75, -0.75, 2.5, -0.75, 0.75, -2.5, -0.75, 0.75, 2.5, -0.75, -0.75, -2.5, -0.75, 0.75, 2.5, -0.75, -0.75, 2.5, -0.75, -0.75, -2.5, 0.75, 0.75, 2.5, -0.75, 0.75, 2.5, 0.75, 0.75, -2.5, -0.75, 0.75, 2.5, -0.75, 0.75, -2.5, 0.75, 0.75, -2.5, -0.75, -0.75, 2.5, 0.75, -0.75, 2.5, -0.75, -0.75, -2.5, 0.75, -0.75, 2.5, 0.75, -0.75, -2.5, -0.75, -0.75, -2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uo5fb"]
+material = SubResource("StandardMaterial3D_dfic2")
+size = Vector3(5, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
 albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
@@ -280,17 +321,17 @@ size = Vector2(30, 5)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_daqgb"]
 data = PackedVector3Array(15, 0, 2.5, -15, 0, 2.5, 15, 0, -2.5, -15, 0, 2.5, -15, 0, -2.5, 15, 0, -2.5)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_1a5tc"]
-size = Vector2(22, 5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d4kwr"]
-data = PackedVector3Array(11, 0, 2.5, -11, 0, 2.5, 11, 0, -2.5, -11, 0, 2.5, -11, 0, -2.5, 11, 0, -2.5)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_woyha"]
 size = Vector2(85, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fb6sa"]
 data = PackedVector3Array(42.5, 0, 5, -42.5, 0, 5, 42.5, 0, -5, -42.5, 0, 5, -42.5, 0, -5, 42.5, 0, -5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yxyq7"]
+size = Vector2(15, 15)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o3hkc"]
+data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rlmhc"]
 size = Vector2(20, 15)
@@ -713,6 +754,7 @@ _spawnable_scenes = PackedStringArray("res://player.tscn")
 spawn_path = NodePath("..")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_c38ts")
 
 [node name="Extra Models" type="Node" parent="NavigationRegion3D"]
@@ -818,6 +860,29 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.55,
 mesh = SubResource("BoxMesh_qtil7")
 skeleton = NodePath("../..")
 
+[node name="DefenderBranchBRamp" type="Node" parent="NavigationRegion3D/Extra Models"]
+
+[node name="DefenderBranchBRamp" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/DefenderBranchBRamp"]
+transform = Transform3D(1, 0, 0, 0, 0.939692, -0.34202, 0, 0.34202, 0.939692, 55.5, -0.34, -16.56)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_je8m7")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Extra Models/DefenderBranchBRamp/DefenderBranchBRamp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Extra Models/DefenderBranchBRamp/DefenderBranchBRamp/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i6q3r")
+
+[node name="RampTextureCover" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/DefenderBranchBRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, -0.5, -16.1334)
+mesh = SubResource("BoxMesh_mqvmi")
+skeleton = NodePath("../..")
+
+[node name="RampTextureCover2" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/DefenderBranchBRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, -17.45)
+mesh = SubResource("BoxMesh_837mc")
+skeleton = NodePath("../..")
+
 [node name="BMainBox" type="Node" parent="NavigationRegion3D/Extra Models"]
 
 [node name="BMainBox" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/BMainBox"]
@@ -828,6 +893,16 @@ mesh = SubResource("BoxMesh_cy8fn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Extra Models/BMainBox/BMainBox/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_be4ia")
+
+[node name="RampTextureCover5" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/BMainBox"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.5, 1.5, 21.25)
+mesh = SubResource("BoxMesh_uo5fb")
+skeleton = NodePath("../..")
+
+[node name="RampTextureCover6" type="MeshInstance3D" parent="NavigationRegion3D/Extra Models/BMainBox"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.5, 0, 21.25)
+mesh = SubResource("BoxMesh_uo5fb")
+skeleton = NodePath("../..")
 
 [node name="Floor" type="Node" parent="NavigationRegion3D"]
 
@@ -932,16 +1007,6 @@ mesh = SubResource("PlaneMesh_6r3n1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/AttackerBranchBMain/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_daqgb")
 
-[node name="DefenderBranchB" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 49.5, 0, -23.5)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_1a5tc")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor/DefenderBranchB"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/DefenderBranchB/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_d4kwr")
-
 [node name="DefenderSpawnExit" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60271, 0, -30.4977)
 cast_shadow = 0
@@ -951,6 +1016,16 @@ mesh = SubResource("PlaneMesh_woyha")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/DefenderSpawnExit/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_fb6sa")
+
+[node name="DefenderSpawnExit2" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 0, -25)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_yxyq7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor/DefenderSpawnExit2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/DefenderSpawnExit2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o3hkc")
 
 [node name="DefenderSpawn" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -42)
