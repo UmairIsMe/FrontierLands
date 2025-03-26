@@ -362,14 +362,21 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_6tn6b")
 text = "Return"
 
+[node name="Volume" type="HSlider" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="7Ddc6769-3759-4691-97e3-3555e34b3367" type="Sprite2D" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 show_behind_parent = true
-position = Vector2(102, 188)
+position = Vector2(99, 225)
 scale = Vector2(1.145, 1.075)
 texture = ExtResource("2_hx7m7")
 
-[node name="MouseSettings" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mouse Sensativity"
+text = "Mute"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="value_changed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
