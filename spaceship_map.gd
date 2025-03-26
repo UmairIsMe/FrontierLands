@@ -1,15 +1,17 @@
-extends Node
+extends Node3D  # Ensure this matches the new scene’s root node type
 
+@onready var Player = preload("res://player.tscn")  # Load player scene
 @onready var main_menu = $CanvasLayer/MainMenu
-#@onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
-
-
-@onready var Player = preload("res://player.tscn")
-#@onready var Player = $Player
-var tracked = false
 var player
+var tracked = false
+func _ready():
+	add_player(multiplayer.get_unique_id())
+
+	
+	if player.is_multiplayer_authority():
+		player.health_changed.connect(update_health_bar)
 
 
 func _physics_process(_delta):
@@ -53,8 +55,6 @@ func update_health_bar(health_value):
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func _ready():
-	Global.hud = $HUD
 
 func _on_spaceship_pressed():
 	get_tree().change_scene_to_file("res://spaceshipMap.tscn")
