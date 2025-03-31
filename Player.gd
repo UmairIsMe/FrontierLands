@@ -32,7 +32,7 @@ const JUMP_VELOCITY = 10.0
 
 
 func Take_damage(amount) -> void:
-	health -= 20
+	health -= amount
 	print("damage taken")
 	if health <= 0:
 		print("Game Over!")
