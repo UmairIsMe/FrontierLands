@@ -15,9 +15,9 @@ signal health_changed(health_value)
 
 
 var is_crouching : bool = false
-var bulletSpawn
-var bulletScene = preload("res://player_bullet.tscn")
-var shootCooldown = 0.2
+var bullet_spawn
+var bullet_scene = preload("res://player_bullet.tscn")
+var shoot_cooldown = 0.2
 var can_shoot = true
 var ammo = 16
 var reload_time = 3
@@ -31,7 +31,7 @@ var is_reloading = false
 const JUMP_VELOCITY = 10.0
 
 
-func Take_damage(amount) -> void:
+func take_damage(amount) -> void:
 	health -= amount
 	print("damage taken")
 	if health <= 0:
@@ -60,7 +60,7 @@ func _enter_tree():
 func _ready():
 	Global.player = self
 	if not is_multiplayer_authority(): return
-	bulletSpawn = get_node("Camera3D/bulletSpawn")
+	bullet_spawn = get_node("Camera3D/bulletSpawn")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	# Find HUD in the world
@@ -109,7 +109,7 @@ func _unhandled_input(event):
 		shoot()
 		can_shoot = false
 		#and anim_player.current_animation != "shoot":
-		await get_tree().create_timer(shootCooldown).timeout
+		await get_tree().create_timer(shoot_cooldown).timeout
 		can_shoot = true
 		play_shoot_effects.rpc()
 		#if raycast.is_colliding():
@@ -201,9 +201,9 @@ func toggle_crouch():
 func shoot():
 	# If ammo is greater than 0, proceed with shooting
 	if ammo > 0:
-		var bullet = bulletScene.instantiate()
+		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
-		bullet.global_transform = bulletSpawn.global_transform
+		bullet.global_transform = bullet_spawn.global_transform
 		bullet.scale = Vector3(0.1, 0.1, 0.1)
 		
 

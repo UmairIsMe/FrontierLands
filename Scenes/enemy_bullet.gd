@@ -19,8 +19,8 @@ func _process (delta):
 func _on_body_entered(body):
 #	print("enemy bullet collide")
 #	print(body.get_parent().name)
-	if body.has_method("Take_damage"):
+	if body.has_method("take_damage"):
 #		print("player hit")
-		body.Take_damage(20)
+		body.take_damage(20)
 	queue_free()
 	
