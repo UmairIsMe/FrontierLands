@@ -235,7 +235,6 @@ material = SubResource("StandardMaterial3D_dfic2")
 size = Vector3(5, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7n4q"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -256,7 +255,6 @@ size = Vector2(35, 36.5)
 data = PackedVector3Array(17.5, 0, 18.5, -17.5, 0, 18.5, 17.5, 0, -18.5, -17.5, 0, 18.5, -17.5, 0, -18.5, 17.5, 0, -18.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5x4wb"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -277,7 +275,6 @@ size = Vector2(22.5, 4)
 data = PackedVector3Array(11.25, 0, 2, -11.25, 0, 2, 11.25, 0, -2, -11.25, 0, 2, -11.25, 0, -2, 11.25, 0, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjw0e"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -298,7 +295,6 @@ size = Vector2(22.5, 8)
 data = PackedVector3Array(11.25, 0, 4, -11.25, 0, 4, 11.25, 0, -4, -11.25, 0, 4, -11.25, 0, -4, 11.25, 0, -4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d8fw"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -308,7 +304,7 @@ normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.25, 0.5, 0.25)
-uv1_offset = Vector3(0, 0, 0.08)
+uv1_offset = Vector3(-0.5, 0, 0.19)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6yl15"]
@@ -319,7 +315,6 @@ size = Vector2(20, 31)
 data = PackedVector3Array(10, 0, 15.5, -10, 0, 15.5, 10, 0, -15.5, -10, 0, 15.5, -10, 0, -15.5, 10, 0, -15.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2p5d"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -340,7 +335,6 @@ size = Vector2(22, 15)
 data = PackedVector3Array(11, 0, 7.5, -11, 0, 7.5, 11, 0, -7.5, -11, 0, 7.5, -11, 0, -7.5, 11, 0, -7.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubk3e"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -350,6 +344,7 @@ normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.25, 0.5, 0.25)
+uv1_offset = Vector3(0, 0, -0.5)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rtvs4"]
@@ -360,7 +355,6 @@ size = Vector2(60, 5)
 data = PackedVector3Array(30, 0, 2.5, -30, 0, 2.5, 30, 0, -2.5, -30, 0, 2.5, -30, 0, -2.5, 30, 0, -2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbow6"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -387,7 +381,6 @@ size = Vector2(30, 5)
 data = PackedVector3Array(15, 0, 2.5, -15, 0, 2.5, 15, 0, -2.5, -15, 0, 2.5, -15, 0, -2.5, 15, 0, -2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfogx"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -397,7 +390,7 @@ normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.25, 0.5, 0.25)
-uv1_offset = Vector3(0.15, 0, -0.047)
+uv1_offset = Vector3(0.65, 0, 0.06)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_woyha"]
@@ -408,7 +401,6 @@ size = Vector2(115, 18)
 data = PackedVector3Array(57.5, 0, 9, -57.5, 0, 9, 57.5, 0, -9, -57.5, 0, 9, -57.5, 0, -9, 57.5, 0, -9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54hpj"]
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
@@ -418,7 +410,7 @@ normal_texture = ExtResource("6_rk3w3")
 ao_enabled = true
 ao_texture = ExtResource("3_0tvp7")
 uv1_scale = Vector3(0.25, 0.5, 0.25)
-uv1_offset = Vector3(-0.125, 0, -0.15)
+uv1_offset = Vector3(-0.125, 0, 0.06)
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rlmhc"]
@@ -429,7 +421,6 @@ size = Vector2(20, 14)
 data = PackedVector3Array(10, 0, 7, -10, 0, 7, 10, 0, -7, -10, 0, 7, -10, 0, -7, 10, 0, -7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy3b2"]
-albedo_color = Color(0.68101, 0.68101, 0.68101, 1)
 albedo_texture = ExtResource("2_2wrj5")
 metallic = 1.0
 metallic_texture = ExtResource("4_7gjqj")
