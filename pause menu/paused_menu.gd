@@ -20,7 +20,7 @@ func set_paused(value:bool) ->void:
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _on_resume_button_pressed():
+func _on_resume_button_pressed() -> void:
 	_is_paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
