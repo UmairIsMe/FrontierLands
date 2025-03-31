@@ -10,11 +10,8 @@ signal health_changed(health_value)
 @export var crouch_height : float = 1.5  # Crouched height
 @export var standing_height : float = 2.5  # Standing height
 @onready var ammo_counter = null
-var is_ready = false
 @onready var hitmarker = $CanvasLayer/HUD/Hitmarker  # Adjust path to match your scene
 @onready var reticle = $CanvasLayer/HUD/Reticle
-#Crouch and standing heights can be changed at any time
-#@onready var health_bar: ProgressBar = $HealthBar
 
 
 var is_crouching : bool = false
@@ -27,15 +24,12 @@ var reload_time = 3
 var max_health = 100
 var current_health = max_health
 var health:int = 100
-
+var is_ready = false
 var speed = 5.0
-const JUMP_VELOCITY = 10.0
-
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20.0
 var is_reloading = false 
+const JUMP_VELOCITY = 10.0
+
 
 func Take_damage(amount) -> void:
 	health -= 20
@@ -51,11 +45,11 @@ func Take_damage(amount) -> void:
 		# Emit the health_changed signal with the updated health value
 		health_changed.emit(health)
 	
-func die() -> void:
-#	print("Player has died")
-#	print(current_health)
-	position = Vector3.ZERO
-	current_health = max_health
+#func die() -> void:
+##	print("Player has died")
+##	print(current_health)
+	#position = Vector3.ZERO
+	#current_health = max_health
 	
 
 
@@ -71,7 +65,7 @@ func _ready():
 	camera.current = true
 	# Find HUD in the world
 	Global.player = self
-	print("Player _ready() called!")
+	#print("Player _ready() called!")
 
 	await get_tree().process_frame  # Wait a frame
 	var hud = null
@@ -81,17 +75,6 @@ func _ready():
 		if hud:
 			print("HUD found:", hud)
 			hitmarker = hud.get_node_or_null("Hitmarker")
-			#if hitmarker:
-				#print("Hitmarker found:", hitmarker)
-			#else:
-				#print("ERROR: Hitmarker not found!")
-		#else:
-			#print("Waiting for HUD to appear...")
-			#await get_tree().process_frame  # Wait another frame and try again
-
-
-
-
 
 	camera.position.y = standing_height / 1.3
 
@@ -129,9 +112,9 @@ func _unhandled_input(event):
 		await get_tree().create_timer(shootCooldown).timeout
 		can_shoot = true
 		play_shoot_effects.rpc()
-		if raycast.is_colliding():
-			var hit_player = raycast.get_collider()
-			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+		#if raycast.is_colliding():
+			#var hit_player = raycast.get_collider()
+			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 	# Detect the reload key (R key)
 	if Input.is_action_just_pressed("reload") and not is_reloading and ammo < 16:
