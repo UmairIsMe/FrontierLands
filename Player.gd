@@ -107,11 +107,15 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot and ammo > 0:
 		shoot()
+		anim_player.stop()
+		anim_player.play("shoot")
+		gunshot.play()
+		muzzle_flash.restart()
+		muzzle_flash.emitting = true
 		can_shoot = false
 		#and anim_player.current_animation != "shoot":
 		await get_tree().create_timer(shoot_cooldown).timeout
 		can_shoot = true
-		play_shoot_effects.rpc()
 		#if raycast.is_colliding():
 			#var hit_player = raycast.get_collider()
 			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
@@ -155,15 +159,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-@rpc("call_local")
-func play_shoot_effects():
-	anim_player.stop()
-	anim_player.play("shoot")
-	gunshot.play()
-	muzzle_flash.restart()
-	muzzle_flash.emitting = true
-
-@rpc("any_peer")
+#@rpc("any_peer")
 #func receive_damage():
 #	current_health -= 20
 #	print("player health")
