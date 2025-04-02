@@ -21,6 +21,6 @@ func _on_body_entered(body):
 #	print(body.get_parent().name)
 	if body.has_method("take_damage"):
 #		print("player hit")
-		body.take_damage(20)
+		body.take_damage(1)
 	queue_free()
 	
