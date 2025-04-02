@@ -21,8 +21,12 @@ var shoot_cooldown = 0.2
 var can_shoot = true
 var ammo = 16
 var reload_time = 3
+
 var max_health = 100
 var current_health = max_health
+var health_regen_value: float  = 1
+var health_regen_rate: float = 0.1
+
 var health:int = 100
 var is_ready = false
 var speed = 5.0
@@ -58,6 +62,7 @@ func _enter_tree():
 
 
 func _ready():
+	set_process(true)  # Enable the _process function
 	Global.player = self
 	if not is_multiplayer_authority(): return
 	bullet_spawn = get_node("Camera3D/bulletSpawn")
@@ -88,6 +93,9 @@ func _ready():
 	if is_ready and ammo_counter:
 		update_ammo_counter()	
 	
+
+
+		
 
 func update_ammo_counter():
 	if ammo_counter:
@@ -122,9 +130,7 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
-	
-	
-	
+
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
@@ -154,6 +160,11 @@ func _physics_process(delta):
 		anim_player.play("idle")
 
 	move_and_slide()
+	
+
+
+
+
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -178,7 +189,7 @@ func _on_animation_player_animation_finished(anim_name):
 		anim_player.play("idle")
 		
 # Called every frame
-func _process(delta):
+func _process(delta: float):
 	# Check if the player is holding shift to run
 	# Speeds are subject to change
 	if Input.is_action_pressed("player_run") and is_crouching == false:
@@ -194,7 +205,13 @@ func _process(delta):
 
 	else:
 		speed = 5.0
-
+		
+	#For health regeneration
+	if health < max_health:
+		health += health_regen_value * health_regen_rate * delta
+		health = min(health, max_health)
+		health_changed.emit(health)
+		
 func toggle_crouch():
 	is_crouching = !is_crouching
 
