@@ -31,7 +31,7 @@ var is_reloading = false
 const JUMP_VELOCITY = 10.0
 
 
-func take_damage(amount) -> void:
+func take_damageP(amount) -> void:
 	health -= amount
 	print("damage taken")
 	if health <= 0:

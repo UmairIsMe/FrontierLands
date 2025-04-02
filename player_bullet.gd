@@ -16,9 +16,9 @@ func _process(delta):
 func _on_body_entered(body):
 #	print("bullet hit")
 #	print (body.name)
-	if body.has_method("take_damage"):
+	if body.has_method("take_damageE"):
 #		print("ow")
-		body.take_damage(damage)
+		body.take_damageE(damage)
 		enemy_hit.emit()
 		destroy()
 
