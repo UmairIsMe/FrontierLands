@@ -1,42 +1,48 @@
-[gd_scene load_steps=212 format=3 uid="uid://txw564016hgy"]
+[gd_scene load_steps=221 format=3 uid="uid://txw564016hgy"]
 
 [ext_resource type="Script" path="res://spaceship_map.gd" id="1_ua7sc"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://Scenes/enemy.tscn" id="1_yd3bh"]
-[ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid/metalgrid2_basecolor.png" id="2_2wrj5"]
+[ext_resource type="Texture2D" uid="uid://ufr15imhwco1" path="res://textures/metalgrid(floor)/metalgrid2_basecolor.png" id="2_2wrj5"]
 [ext_resource type="Texture2D" uid="uid://dvjg8qw203lj7" path="res://panorama6.jpg" id="2_ovteb"]
-[ext_resource type="Texture2D" uid="uid://d3vf70f35hwbm" path="res://textures/metalgrid/metalgrid2_AO.png" id="3_0tvp7"]
-[ext_resource type="Texture2D" uid="uid://dyrr2si0y7stw" path="res://textures/metalgrid/metalgrid2_metallic.png" id="4_7gjqj"]
-[ext_resource type="Texture2D" uid="uid://umg2dbwr1tlw" path="res://textures/metalgrid/metalgrid2_roughness.png" id="5_ic1wy"]
-[ext_resource type="Texture2D" uid="uid://nn1yxkblqbxx" path="res://textures/aluminiumfloor/textured-aluminum_albedo.png" id="6_b880m"]
-[ext_resource type="Texture2D" uid="uid://bxprug5ds4i21" path="res://textures/metalgrid/metalgrid2_normal-dx.png" id="6_rk3w3"]
-[ext_resource type="Texture2D" uid="uid://bnte8ys1twwna" path="res://textures/aluminiumfloor/textured-aluminum_ao.png" id="7_wd3ir"]
-[ext_resource type="Texture2D" uid="uid://b776h8pii1dmh" path="res://textures/aluminiumfloor/textured-aluminum_metallic.png" id="8_nsltx"]
-[ext_resource type="Texture2D" uid="uid://bb41712usju7a" path="res://textures/aluminiumfloor/textured-aluminum_height.png" id="9_c4ds7"]
-[ext_resource type="Texture2D" uid="uid://ct4phr7nap66l" path="res://textures/aluminiumfloor/textured-aluminum_normal-ogl.png" id="11_lug6u"]
+[ext_resource type="Texture2D" uid="uid://d3vf70f35hwbm" path="res://textures/metalgrid(floor)/metalgrid2_AO.png" id="3_0tvp7"]
+[ext_resource type="Texture2D" uid="uid://dyrr2si0y7stw" path="res://textures/metalgrid(floor)/metalgrid2_metallic.png" id="4_7gjqj"]
+[ext_resource type="Texture2D" uid="uid://umg2dbwr1tlw" path="res://textures/metalgrid(floor)/metalgrid2_roughness.png" id="5_ic1wy"]
+[ext_resource type="Texture2D" uid="uid://nn1yxkblqbxx" path="res://textures/aluminiumfloor(covers)/textured-aluminum_albedo.png" id="6_b880m"]
+[ext_resource type="Texture2D" uid="uid://bxprug5ds4i21" path="res://textures/metalgrid(floor)/metalgrid2_normal-dx.png" id="6_rk3w3"]
+[ext_resource type="Texture2D" uid="uid://bnte8ys1twwna" path="res://textures/aluminiumfloor(covers)/textured-aluminum_ao.png" id="7_wd3ir"]
+[ext_resource type="Texture2D" uid="uid://b776h8pii1dmh" path="res://textures/aluminiumfloor(covers)/textured-aluminum_metallic.png" id="8_nsltx"]
+[ext_resource type="Texture2D" uid="uid://bb41712usju7a" path="res://textures/aluminiumfloor(covers)/textured-aluminum_height.png" id="9_c4ds7"]
+[ext_resource type="Texture2D" uid="uid://ct4phr7nap66l" path="res://textures/aluminiumfloor(covers)/textured-aluminum_normal-ogl.png" id="11_lug6u"]
 [ext_resource type="Texture2D" uid="uid://ch3r2q6v8cxht" path="res://textures/metalplate/armor-plating1_albedo.png" id="12_8bgur"]
-[ext_resource type="Texture2D" uid="uid://b4uffa0rc3t4k" path="res://textures/wornpanels/worn-modern-panels_albedo.png" id="13_4qamw"]
+[ext_resource type="Texture2D" uid="uid://b4uffa0rc3t4k" path="res://textures/wornpanels(ramps)/worn-modern-panels_albedo.png" id="13_4qamw"]
 [ext_resource type="Texture2D" uid="uid://3jmifh8v41w0" path="res://textures/metalplate/armor-plating1_ao.png" id="13_khhbu"]
 [ext_resource type="Texture2D" uid="uid://boor3kqoiod0m" path="res://textures/metalplate/armor-plating1_metallic.png" id="14_euxq4"]
-[ext_resource type="Texture2D" uid="uid://blwpjls73egw0" path="res://textures/wornpanels/worn-modern-panels_ao.png" id="14_unahx"]
-[ext_resource type="Texture2D" uid="uid://dhgsrywjxsl40" path="res://textures/wornpanels/worn-modern-panels_metallic.png" id="15_4tef2"]
+[ext_resource type="Texture2D" uid="uid://blwpjls73egw0" path="res://textures/wornpanels(ramps)/worn-modern-panels_ao.png" id="14_unahx"]
+[ext_resource type="Texture2D" uid="uid://dhgsrywjxsl40" path="res://textures/wornpanels(ramps)/worn-modern-panels_metallic.png" id="15_4tef2"]
 [ext_resource type="Texture2D" uid="uid://cbcjrrbp1jvkm" path="res://textures/metalplate/armor-plating1_normal-ogl.png" id="15_041ex"]
 [ext_resource type="Texture2D" uid="uid://boq4ryqk13gjh" path="res://textures/metalplate/armor-plating1_height.png" id="16_j20rq"]
-[ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels/worn-modern-panels_normal-ogl.png" id="16_khsst"]
-[ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels/worn-modern-panels_height.png" id="17_4edwr"]
-[ext_resource type="Texture2D" uid="uid://b2s60ke0o4t7c" path="res://textures/ventedmetal/vented-metal-panel1_albedo.png" id="21_328lf"]
-[ext_resource type="Texture2D" uid="uid://t5kdbim0ldaa" path="res://textures/ventedmetal/vented-metal-panel1_ao.png" id="22_2dmup"]
-[ext_resource type="Texture2D" uid="uid://cgoe20rfv5nq" path="res://textures/ventedmetal/vented-metal-panel1_height.png" id="23_sg8p8"]
-[ext_resource type="Texture2D" uid="uid://cppxtjfli8is2" path="res://textures/ventedmetal/vented-metal-panel1_metallic.png" id="24_hbx1o"]
-[ext_resource type="Texture2D" uid="uid://d3hxq3mkxs8my" path="res://textures/ventedmetal/vented-metal-panel1_normal-ogl.png" id="25_uda14"]
-[ext_resource type="Texture2D" uid="uid://cv004cae0hcrw" path="res://textures/ventedmetal/vented-metal-panel1_roughness.png" id="26_8ic2o"]
+[ext_resource type="Texture2D" uid="uid://pli6nji24r4" path="res://textures/wornpanels(ramps)/worn-modern-panels_normal-ogl.png" id="16_khsst"]
+[ext_resource type="Texture2D" uid="uid://xjh2d2bkal13" path="res://textures/wornpanels(ramps)/worn-modern-panels_height.png" id="17_4edwr"]
+[ext_resource type="Texture2D" uid="uid://b2s60ke0o4t7c" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_albedo.png" id="21_328lf"]
+[ext_resource type="Texture2D" uid="uid://t5kdbim0ldaa" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_ao.png" id="22_2dmup"]
+[ext_resource type="Texture2D" uid="uid://cgoe20rfv5nq" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_height.png" id="23_sg8p8"]
+[ext_resource type="Texture2D" uid="uid://cppxtjfli8is2" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_metallic.png" id="24_hbx1o"]
+[ext_resource type="Texture2D" uid="uid://d3hxq3mkxs8my" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_normal-ogl.png" id="25_uda14"]
+[ext_resource type="Texture2D" uid="uid://cv004cae0hcrw" path="res://textures/ventedmetal(Bbox)/vented-metal-panel1_roughness.png" id="26_8ic2o"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="27_rarf2"]
 [ext_resource type="Texture2D" uid="uid://cl6kwp05e50tu" path="res://icons/Hitmarker.png" id="28_os5cx"]
-[ext_resource type="Texture2D" uid="uid://jj3fxhw7edxf" path="res://textures/spacepanels/filthy-space-panels_albedo.png" id="32_agrke"]
-[ext_resource type="Texture2D" uid="uid://0ly3n3633pxs" path="res://textures/spacepanels/filthy-space-panels_ao.png" id="33_n2ujb"]
-[ext_resource type="Texture2D" uid="uid://d4hfd33f4ok4k" path="res://textures/spacepanels/filthy-space-panels_height.png" id="34_d55wo"]
-[ext_resource type="Texture2D" uid="uid://coc77qt7a6ypn" path="res://textures/spacepanels/filthy-space-panels_metallic.png" id="35_kfx6h"]
-[ext_resource type="Texture2D" uid="uid://djermyj3hh7ki" path="res://textures/spacepanels/filthy-space-panels_normal-dx.png" id="36_8jx0n"]
-[ext_resource type="Texture2D" uid="uid://cun7mc88ipxp5" path="res://textures/spacepanels/filthy-space-panels_roughness.png" id="37_8sd5s"]
+[ext_resource type="Texture2D" uid="uid://jj3fxhw7edxf" path="res://textures/spacepanels(doors)/filthy-space-panels_albedo.png" id="32_agrke"]
+[ext_resource type="Texture2D" uid="uid://dku3xbacvlxgs" path="res://textures/metalbase(walls)/metal-siding-base_albedo.png" id="32_ivi72"]
+[ext_resource type="Texture2D" uid="uid://bgkmxgduw3o6d" path="res://textures/metalbase(walls)/metal-siding-base_ao.png" id="33_3by63"]
+[ext_resource type="Texture2D" uid="uid://0ly3n3633pxs" path="res://textures/spacepanels(doors)/filthy-space-panels_ao.png" id="33_n2ujb"]
+[ext_resource type="Texture2D" uid="uid://d4hfd33f4ok4k" path="res://textures/spacepanels(doors)/filthy-space-panels_height.png" id="34_d55wo"]
+[ext_resource type="Texture2D" uid="uid://ccum5pvaxd0kg" path="res://textures/metalbase(walls)/metal-siding-base_height.png" id="34_ivdkf"]
+[ext_resource type="Texture2D" uid="uid://crm1hahdrrthk" path="res://textures/metalbase(walls)/metal-siding-base_metallic.png" id="35_0plff"]
+[ext_resource type="Texture2D" uid="uid://coc77qt7a6ypn" path="res://textures/spacepanels(doors)/filthy-space-panels_metallic.png" id="35_kfx6h"]
+[ext_resource type="Texture2D" uid="uid://djermyj3hh7ki" path="res://textures/spacepanels(doors)/filthy-space-panels_normal-dx.png" id="36_8jx0n"]
+[ext_resource type="Texture2D" uid="uid://d31chl3dl1ua7" path="res://textures/metalbase(walls)/metal-siding-base_normal-dx.png" id="36_nn63f"]
+[ext_resource type="Texture2D" uid="uid://cun7mc88ipxp5" path="res://textures/spacepanels(doors)/filthy-space-panels_roughness.png" id="37_8sd5s"]
+[ext_resource type="Texture2D" uid="uid://biqw5pexpt1pg" path="res://textures/metalbase(walls)/metal-siding-base_roughness.png" id="37_wt8lh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxi7n"]
 bg_color = Color(1, 0.117647, 0, 1)
@@ -520,7 +526,22 @@ data = PackedVector3Array(-2.5, 4.5, 6.5, 2.5, 4.5, 6.5, -2.5, -4.5, 6.5, 2.5, 4
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sxqyh"]
 data = PackedVector3Array(-8.5, 4.5, 10, 8.5, 4.5, 10, -8.5, -4.5, 10, 8.5, 4.5, 10, 8.5, -4.5, 10, -8.5, -4.5, 10, 8.5, 4.5, -10, -8.5, 4.5, -10, 8.5, -4.5, -10, -8.5, 4.5, -10, -8.5, -4.5, -10, 8.5, -4.5, -10, 8.5, 4.5, 10, 8.5, 4.5, -10, 8.5, -4.5, 10, 8.5, 4.5, -10, 8.5, -4.5, -10, 8.5, -4.5, 10, -8.5, 4.5, -10, -8.5, 4.5, 10, -8.5, -4.5, -10, -8.5, 4.5, 10, -8.5, -4.5, 10, -8.5, -4.5, -10, 8.5, 4.5, 10, -8.5, 4.5, 10, 8.5, 4.5, -10, -8.5, 4.5, 10, -8.5, 4.5, -10, 8.5, 4.5, -10, -8.5, -4.5, 10, 8.5, -4.5, 10, -8.5, -4.5, -10, 8.5, -4.5, 10, 8.5, -4.5, -10, -8.5, -4.5, -10)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir3n2"]
+albedo_texture = ExtResource("32_ivi72")
+metallic = 1.0
+metallic_texture = ExtResource("35_0plff")
+roughness_texture = ExtResource("37_wt8lh")
+normal_enabled = true
+normal_texture = ExtResource("36_nn63f")
+ao_enabled = true
+ao_texture = ExtResource("33_3by63")
+heightmap_enabled = true
+heightmap_texture = ExtResource("34_ivdkf")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_2p1xv"]
+material = SubResource("StandardMaterial3D_ir3n2")
 size = Vector3(12, 9, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rf2x6"]
@@ -532,20 +553,53 @@ size = Vector3(18, 9, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xtsja"]
 data = PackedVector3Array(-9, 4, 0.5, 9, 4, 0.5, -9, -4, 0.5, 9, 4, 0.5, 9, -4, 0.5, -9, -4, 0.5, 9, 4, -0.5, -9, 4, -0.5, 9, -4, -0.5, -9, 4, -0.5, -9, -4, -0.5, 9, -4, -0.5, 9, 4, 0.5, 9, 4, -0.5, 9, -4, 0.5, 9, 4, -0.5, 9, -4, -0.5, 9, -4, 0.5, -9, 4, -0.5, -9, 4, 0.5, -9, -4, -0.5, -9, 4, 0.5, -9, -4, 0.5, -9, -4, -0.5, 9, 4, 0.5, -9, 4, 0.5, 9, 4, -0.5, -9, 4, 0.5, -9, 4, -0.5, 9, 4, -0.5, -9, -4, 0.5, 9, -4, 0.5, -9, -4, -0.5, 9, -4, 0.5, 9, -4, -0.5, -9, -4, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhh2n"]
+albedo_texture = ExtResource("32_ivi72")
+metallic = 1.0
+metallic_texture = ExtResource("35_0plff")
+roughness_texture = ExtResource("37_wt8lh")
+normal_enabled = true
+normal_texture = ExtResource("36_nn63f")
+ao_enabled = true
+ao_texture = ExtResource("33_3by63")
+heightmap_enabled = true
+heightmap_texture = ExtResource("34_ivdkf")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_offset = Vector3(0.09, 0, 0.045)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_123me"]
+material = SubResource("StandardMaterial3D_rhh2n")
 size = Vector3(25, 9, 2.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7yaxt"]
 data = PackedVector3Array(-12.5, 4, 1.25, 12.5, 4, 1.25, -12.5, -4, 1.25, 12.5, 4, 1.25, 12.5, -4, 1.25, -12.5, -4, 1.25, 12.5, 4, -1.25, -12.5, 4, -1.25, 12.5, -4, -1.25, -12.5, 4, -1.25, -12.5, -4, -1.25, 12.5, -4, -1.25, 12.5, 4, 1.25, 12.5, 4, -1.25, 12.5, -4, 1.25, 12.5, 4, -1.25, 12.5, -4, -1.25, 12.5, -4, 1.25, -12.5, 4, -1.25, -12.5, 4, 1.25, -12.5, -4, -1.25, -12.5, 4, 1.25, -12.5, -4, 1.25, -12.5, -4, -1.25, 12.5, 4, 1.25, -12.5, 4, 1.25, 12.5, 4, -1.25, -12.5, 4, 1.25, -12.5, 4, -1.25, 12.5, 4, -1.25, -12.5, -4, 1.25, 12.5, -4, 1.25, -12.5, -4, -1.25, 12.5, -4, 1.25, 12.5, -4, -1.25, -12.5, -4, -1.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8lh2v"]
-size = Vector3(25, 11, 9)
+material = SubResource("StandardMaterial3D_rhh2n")
+size = Vector3(25, 9, 10.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_okt5p"]
 data = PackedVector3Array(-12.5, 5.5, 4, 12.5, 5.5, 4, -12.5, -5.5, 4, 12.5, 5.5, 4, 12.5, -5.5, 4, -12.5, -5.5, 4, 12.5, 5.5, -4, -12.5, 5.5, -4, 12.5, -5.5, -4, -12.5, 5.5, -4, -12.5, -5.5, -4, 12.5, -5.5, -4, 12.5, 5.5, 4, 12.5, 5.5, -4, 12.5, -5.5, 4, 12.5, 5.5, -4, 12.5, -5.5, -4, 12.5, -5.5, 4, -12.5, 5.5, -4, -12.5, 5.5, 4, -12.5, -5.5, -4, -12.5, 5.5, 4, -12.5, -5.5, 4, -12.5, -5.5, -4, 12.5, 5.5, 4, -12.5, 5.5, 4, 12.5, 5.5, -4, -12.5, 5.5, 4, -12.5, 5.5, -4, 12.5, 5.5, -4, -12.5, -5.5, 4, 12.5, -5.5, 4, -12.5, -5.5, -4, 12.5, -5.5, 4, 12.5, -5.5, -4, -12.5, -5.5, -4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmt3m"]
+albedo_texture = ExtResource("32_ivi72")
+metallic = 1.0
+metallic_texture = ExtResource("35_0plff")
+roughness_texture = ExtResource("37_wt8lh")
+normal_enabled = true
+normal_texture = ExtResource("36_nn63f")
+ao_enabled = true
+ao_texture = ExtResource("33_3by63")
+heightmap_enabled = true
+heightmap_texture = ExtResource("34_ivdkf")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_offset = Vector3(0.015, 0, 0)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_tnvi1"]
-size = Vector3(11, 5.5, 9)
+material = SubResource("StandardMaterial3D_hmt3m")
+size = Vector3(11, 9, 5.25)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_86ysj"]
 data = PackedVector3Array(-5.5, 2.75, 4, 5.5, 2.75, 4, -5.5, -2.75, 4, 5.5, 2.75, 4, 5.5, -2.75, 4, -5.5, -2.75, 4, 5.5, 2.75, -4, -5.5, 2.75, -4, 5.5, -2.75, -4, -5.5, 2.75, -4, -5.5, -2.75, -4, 5.5, -2.75, -4, 5.5, 2.75, 4, 5.5, 2.75, -4, 5.5, -2.75, 4, 5.5, 2.75, -4, 5.5, -2.75, -4, 5.5, -2.75, 4, -5.5, 2.75, -4, -5.5, 2.75, 4, -5.5, -2.75, -4, -5.5, 2.75, 4, -5.5, -2.75, 4, -5.5, -2.75, -4, 5.5, 2.75, 4, -5.5, 2.75, 4, 5.5, 2.75, -4, -5.5, 2.75, 4, -5.5, 2.75, -4, 5.5, 2.75, -4, -5.5, -2.75, 4, 5.5, -2.75, 4, -5.5, -2.75, -4, 5.5, -2.75, 4, 5.5, -2.75, -4, -5.5, -2.75, -4)
@@ -857,7 +911,7 @@ spawn_path = NodePath("../spawn_point")
 [node name="spawn_point" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.632597, 0.774481, 0, -0.774481, 0.632597, 0, 35.1603, 11.922)
+transform = Transform3D(0.878928, 0.407956, -0.247098, 0.0268328, 0.47496, 0.879598, 0.476199, -0.779734, 0.406509, -36.9428, 17.282, 21.0119)
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1321,7 +1375,7 @@ shape = SubResource("ConcavePolygonShape3D_63sve")
 shape = SubResource("ConcavePolygonShape3D_sxqyh")
 
 [node name="AttackerMidWallLeft" type="MeshInstance3D" parent="NavigationRegion3D/Interior Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 4, 18.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3, 4, 18.25)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_2p1xv")
 
@@ -1351,7 +1405,7 @@ mesh = SubResource("BoxMesh_123me")
 shape = SubResource("ConcavePolygonShape3D_7yaxt")
 
 [node name="BlockSection" type="MeshInstance3D" parent="NavigationRegion3D/Interior Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -29.8, 4, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8, 4, 8.25)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_8lh2v")
 skeleton = NodePath("../LowerLeftQuarterMid")
@@ -1362,7 +1416,7 @@ skeleton = NodePath("../LowerLeftQuarterMid")
 shape = SubResource("ConcavePolygonShape3D_okt5p")
 
 [node name="BlockSection2" type="MeshInstance3D" parent="NavigationRegion3D/Interior Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -22.8, 4, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8, 4, 16.125)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_tnvi1")
 skeleton = NodePath("../LowerLeftQuarterMid")
