@@ -21,12 +21,8 @@ var shoot_cooldown = 0.2
 var can_shoot = true
 var ammo = 16
 var reload_time = 3
-
 var max_health = 100
 var current_health = max_health
-var health_regen_value: float  = 1
-var health_regen_rate: float = 0.1
-
 var health:int = 100
 var is_ready = false
 var speed = 5.0
@@ -37,9 +33,9 @@ const JUMP_VELOCITY = 10.0
 
 func take_damageP(amount) -> void:
 	health -= amount
-	print("damage taken")
+#	print("damage taken")
 	if health <= 0:
-		print("Game Over!")
+#		print("Game Over!")
 		# Reset the player's health and position
 		health = max_health
 		position = Vector3.ZERO
@@ -50,20 +46,12 @@ func take_damageP(amount) -> void:
 		# Emit the health_changed signal with the updated health value
 		health_changed.emit(health)
 	
-#func die() -> void:
-##	print("Player has died")
-##	print(current_health)
-	#position = Vector3.ZERO
-	#current_health = max_health
-	
-
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 
 func _ready():
-	set_process(true)  # Enable the _process function
 	Global.player = self
 	if not is_multiplayer_authority(): return
 	bullet_spawn = get_node("Camera3D/bulletSpawn")
@@ -95,9 +83,6 @@ func _ready():
 		update_ammo_counter()	
 	
 
-
-		
-
 func update_ammo_counter():
 	if ammo_counter:
 		ammo_counter.text = str(ammo) + "/16"
@@ -125,9 +110,6 @@ func _unhandled_input(event):
 		#and anim_player.current_animation != "shoot":
 		await get_tree().create_timer(shoot_cooldown).timeout
 		can_shoot = true
-		#if raycast.is_colliding():
-			#var hit_player = raycast.get_collider()
-			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 	# Detect the reload key (R key)
 	if Input.is_action_just_pressed("reload") and not is_reloading and ammo < 16:
@@ -167,20 +149,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
-
-
-
-
-#@rpc("any_peer")
-#func receive_damage():
-#	current_health -= 20
-#	print("player health")
-#	if current_health <= 0:
-#		current_health == max_health
-#		position = Vector3.ZERO
-#		die()
-#	health_changed.emit(current_health)
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
@@ -203,11 +171,6 @@ func _process(delta: float):
 	else:
 		speed = 5.0
 		
-	#For health regeneration
-	if health < max_health:
-		health += health_regen_value * health_regen_rate * delta
-		health = min(health, max_health)
-		health_changed.emit(health)
 		
 func toggle_crouch():
 	is_crouching = !is_crouching
