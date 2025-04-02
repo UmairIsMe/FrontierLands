@@ -31,7 +31,7 @@ var is_reloading = false
 const JUMP_VELOCITY = 10.0
 
 
-func take_damage(amount) -> void:
+func take_damageP(amount) -> void:
 	health -= amount
 	print("damage taken")
 	if health <= 0:
@@ -41,6 +41,7 @@ func take_damage(amount) -> void:
 		position = Vector3.ZERO
 		# Emit the health_changed signal with the reset health value
 		health_changed.emit(health)
+		start_reload()
 	else:
 		# Emit the health_changed signal with the updated health value
 		health_changed.emit(health)
@@ -237,11 +238,6 @@ func start_reload():
 	is_reloading = false
 
 
-func respawn():
-	await get_tree().create_timer(5).timeout  # Optional delay before respawning
-	current_health = max_health  # Reset health
-	global_position = Vector3.ZERO  # Move player back to spawn
-	health_changed.emit(current_health)  # Update health bar
 
 func show_hitmarker():
 	if hitmarker:
