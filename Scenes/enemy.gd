@@ -79,7 +79,7 @@ func _on_timer_timeout():
 	shoot_bullet()
 
 
-func take_damage(damage_amount):
+func take_damageE(damage_amount):
 	health -= damage_amount
 	if health <=0:
 		queue_free()

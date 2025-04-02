@@ -41,9 +41,11 @@ func set_timer(time: float):
 func _on_body_entered(body):
 #	print("bullet hit")
 #	print (body.name)
-	if body.has_method("take_damage"):
-		print("ow")
-		body.take_damage(damage)
+
+	if body.has_method("take_damageE"):
+#		print("ow")
+		body.take_damageE(damage)
+
 		enemy_hit.emit()
 		destroy()
 
