@@ -33,9 +33,9 @@ const JUMP_VELOCITY = 10.0
 
 func take_damageP(amount) -> void:
 	health -= amount
-	print("damage taken")
+#	print("damage taken")
 	if health <= 0:
-		print("Game Over!")
+#		print("Game Over!")
 		# Reset the player's health and position
 		health = max_health
 		position = Vector3.ZERO
@@ -46,13 +46,6 @@ func take_damageP(amount) -> void:
 		# Emit the health_changed signal with the updated health value
 		health_changed.emit(health)
 	
-#func die() -> void:
-##	print("Player has died")
-##	print(current_health)
-	#position = Vector3.ZERO
-	#current_health = max_health
-	
-
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -117,9 +110,6 @@ func _unhandled_input(event):
 		#and anim_player.current_animation != "shoot":
 		await get_tree().create_timer(shoot_cooldown).timeout
 		can_shoot = true
-		#if raycast.is_colliding():
-			#var hit_player = raycast.get_collider()
-			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 	# Detect the reload key (R key)
 	if Input.is_action_just_pressed("reload") and not is_reloading and ammo < 16:
@@ -127,9 +117,7 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
-	
-	
-	
+
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
@@ -159,23 +147,14 @@ func _physics_process(delta):
 		anim_player.play("idle")
 
 	move_and_slide()
-
-#@rpc("any_peer")
-#func receive_damage():
-#	current_health -= 20
-#	print("player health")
-#	if current_health <= 0:
-#		current_health == max_health
-#		position = Vector3.ZERO
-#		die()
-#	health_changed.emit(current_health)
+	
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
 		
 # Called every frame
-func _process(delta):
+func _process(delta: float):
 	# Check if the player is holding shift to run
 	# Speeds are subject to change
 	if Input.is_action_pressed("player_run") and is_crouching == false:
@@ -191,7 +170,8 @@ func _process(delta):
 
 	else:
 		speed = 5.0
-
+		
+		
 func toggle_crouch():
 	is_crouching = !is_crouching
 

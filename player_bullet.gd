@@ -24,9 +24,6 @@ func _process(delta):
 	global_transform.origin -= transform.basis.z.normalized() * speed * delta
 	var remaining_distance = speed * delta
 	
-	#for i in range(int(1.0 / step_size)):
-		#var next_position = global_position + (remaining_distance * step_size)
-		#global_position = next_position
 		
 		# Manually check for collisions
 	var collisions = get_overlapping_bodies()
